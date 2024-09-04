@@ -1,13 +1,19 @@
 import { HeaderStyled } from "./styled";
 import { useRouter } from "next/router";
-import { Input, DatePicker, Button } from "antd";
-import { useState, useRef } from "react";
-import dayjs, { Dayjs } from "dayjs";
-const { RangePicker } = DatePicker;
+import { Input, Button } from "antd";
+import React, { useState, useRef, ChangeEvent } from "react";
+import { Dayjs } from "dayjs";
+import Place from "./place";
+import Date from "./date";
+import People from "./people";
 const Header = () => {
   const router = useRouter();
   const path = router.asPath;
-  // console.log(path);
+  //place 컴포넌트. 여행지
+  const [place, setPlace] = useState("");
+  const [autoComplete, setAutoComplete] = useState<string[]>([]);
+
+  //date 컴포넌트. 체크인, 체크아웃 날짜
   const [dates, setDates] = useState<[Dayjs | null, Dayjs | null]>([
     null,
     null,
@@ -16,76 +22,111 @@ const Header = () => {
   const [checkInDate, setCheckInDate] = useState<string | null>(null);
   const [checkOutDate, setCheckOutDate] = useState<string | null>(null);
 
-  //페이지 라우팅
-  const routingPage = (type: string) => {
-    // const number = type === "Shop1" ? 1 : type === "Shop2" ? 2 : 3;
-    // if (type === "Home") {
-    //   router.push("/");
-    // } else {
-    //   router.push(`/shop/${number}`);
-    // }
+  //people 컴포넌트. 인원설정
+  const [isGuestSelectorVisible, setIsGuestSelectorVisible] = useState(false);
+  const [peopleNum, setPeopleNum] = useState(0);
+  const [adultCount, setAdultCount] = useState(0);
+  const [childCount, setChildCount] = useState(0);
+  const [infantCount, setInfantCount] = useState(0);
+  const [petCount, setPetCount] = useState(0);
+  // 인원 조절 핸들러
+  const incrementCount = (type: string) => {
+    if (type === "adult") {
+      setPeopleNum(peopleNum + 1);
+      setAdultCount(adultCount + 1);
+    } else if (type === "child") {
+      setPeopleNum(peopleNum + 1);
+      setChildCount(childCount + 1);
+    } else if (type === "infant") setInfantCount(infantCount + 1);
+    else if (type === "pet") setPetCount(petCount + 1);
+  };
+  const decrementCount = (type: string) => {
+    if (type === "adult" && adultCount > 0) {
+      setAdultCount(adultCount - 1);
+      setPeopleNum(peopleNum - 1);
+    } else if (type === "child" && childCount > 0) {
+      setChildCount(childCount - 1);
+      setPeopleNum(peopleNum - 1);
+    } else if (type === "infant" && infantCount > 0)
+      setInfantCount(infantCount - 1);
+    else if (type === "pet" && petCount > 0) setPetCount(petCount - 1);
   };
 
-  const onRangeChange = (dates: [Dayjs | null, Dayjs | null]) => {
-    setDates(dates);
+  // 검색 버튼 클릭 핸들러
+  const handleSearch = () => {
+    // URL의 쿼리 파라미터로 필요한 데이터 전달
+    router.push({
+      pathname: "/search",
+      query: {
+        place: place || "", // 여행지
+        checkInDate: checkInDate || "", // 체크인 날짜
+        checkOutDate: checkOutDate || "", // 체크아웃 날짜
+        peopleNum: peopleNum.toString(), // 인원 수 (문자열로 변환)
+      },
+    });
+  };
 
-    if (dates[0] && !dates[1]) {
-      // 체크인 날짜만 선택되었을때
-      setCheckInDate(dates[0].format("YYYY-MM-DD"));
-    } else if (dates[0] && dates[1]) {
-      //체크인, 체크아웃 날짜가 선택되었을때
-      setCheckInDate(dates[0].format("YYYY-MM-DD"));
-      setCheckOutDate(dates[1].format("YYYY-MM-DD"));
-    } else {
-      //체크인, 체크아웃 모두 선택되지 않았을 때.
-      setCheckInDate("");
-      setCheckOutDate("");
-    }
+  // 상태 초기화 핸들러
+  const resetStates = () => {
+    setPlace(""); // 여행지 초기화
+    setAutoComplete([]); // 자동완성 초기화
+    setDates([null, null]); // 날짜 초기화
+    setCheckInDate(null); // 체크인 날짜 초기화
+    setCheckOutDate(null); // 체크아웃 날짜 초기화
+    setPeopleNum(0); // 전체 인원 초기화
+    setAdultCount(0); // 성인 수 초기화
+    setChildCount(0); // 아동 수 초기화
+    setInfantCount(0); // 유아 수 초기화
+    setPetCount(0); // 반려동물 수 초기화
   };
 
   return (
     <HeaderStyled>
       <div className="topBox">
-        {/* 왼쪽 상단 로고 */}
-        <div className="logoBox">로고</div>
-        {/* 우측 상단 로그인, 회원가입 */}
+        <div
+          className="logoBox"
+          onClick={() => {
+            resetStates(); // 상태 초기화
+            router.push("/"); // 메인 페이지로 이동
+          }}
+        >
+          백일몽
+        </div>
         <div className="loginBox">로그인</div>
       </div>
       <div className={`nav ${path === "/login" ? "noneHead" : ""}`}>
         <div className="navBox">
-          <div
-            onClick={() => {
-              //   routingPage("Home");
-            }}
-          >
-            여행지
-            <Input />
+          <div className="placeBox">
+            <Place
+              setPlace={setPlace}
+              setAutoComplete={setAutoComplete}
+              place={place}
+              autoComplete={autoComplete}
+            />
           </div>
-          <div>
-            <div>체크인 : {checkInDate}</div>
-            <div>체크아웃 : {checkOutDate}</div>
-            <div>
-              <RangePicker
-                className="selectDate"
-                ref={rangePickerRef} // RangePicker의 ref 추가
-                onCalendarChange={onRangeChange}
-                value={dates}
-              />
-            </div>
+          <div className="dateBox">
+            <Date
+              setDates={setDates}
+              setCheckInDate={setCheckInDate}
+              setCheckOutDate={setCheckOutDate}
+              rangePickerRef={rangePickerRef}
+              dates={dates}
+            />
           </div>
-          <div
-            onClick={() => {
-              //   routingPage("Shop3");
-            }}
-          >
-            여행자
-            <Input />
-            <div
-              onClick={() => {
-                //   routingPage("Search");
-              }}
-            >
-              <Button>검색</Button>
+          <div className="peopleBox">
+            <People
+              setIsGuestSelectorVisible={setIsGuestSelectorVisible}
+              isGuestSelectorVisible={isGuestSelectorVisible}
+              peopleNum={peopleNum}
+              infantCount={infantCount}
+              petCount={petCount}
+              adultCount={adultCount}
+              decrementCount={decrementCount}
+              incrementCount={incrementCount}
+              childCount={childCount}
+            />
+            <div onClick={handleSearch}>
+              <Button className="searchButton">검색</Button>
             </div>
           </div>
         </div>
