@@ -130,6 +130,8 @@ export const seoul = [
     욕실 : 삼푸,바디워시, 컨디셔너, 칫솔 , 치약, 드라이기,고데기, 빗,수건,헤어에센스 등`,
     peopleLimit: 2,
     price: [{ oneday: 178000 }, { commission: 27643 }, { total: 205643 }],
+    latitude: 37.540597,
+    longitude: 126.971171,
   },
   {
     id: 2,
@@ -176,6 +178,8 @@ export const seoul = [
     - 티비 + 인터넷 와이파이`,
     peopleLimit: 3,
     price: [{ oneday: 67000 }, { commission: 10405 }, { total: 77405 }],
+    latitude: 37.503064,
+    longitude: 126.775977,
   },
   {
     id: 3,
@@ -224,6 +228,8 @@ export const seoul = [
     *주차를 원하시면 미리 알려주시면 할인가로 가능합니다.`,
     peopleLimit: 3,
     price: [{ oneday: 95000 }, { commission: 14753 }, { total: 109753 }],
+    latitude: 37.502784,
+    longitude: 126.774228,
   },
   {
     id: 4,
@@ -260,6 +266,8 @@ export const seoul = [
     - 신도시 맛집 배달권역`,
     peopleLimit: 2,
     price: [{ oneday: 59000 }, { commission: 9162 }, { total: 68162 }],
+    latitude: 37.578464,
+    longitude: 126.796992,
   },
   {
     id: 5,
@@ -316,6 +324,8 @@ export const seoul = [
     다만, 저희가 사랑하는 이 공간을 마음에 들어 예약해주신 게스트분께는 최상의 컨디션의 공간을 제공해드릴 수 있도록 항상 최선을 다하겠습니다. 감사합니다.`,
     peopleLimit: 4,
     price: [{ oneday: 215000 }, { commission: 33388 }, { total: 248388 }],
+    latitude: 37.5655383,
+    longitude: 126.8013282,
   },
   {
     id: 6,
@@ -361,6 +371,8 @@ export const seoul = [
     * 건물 1층에 편의점이 있습니다.`,
     peopleLimit: 2,
     price: [{ oneday: 90000 }, { commission: 25623 }, { total: 115623 }],
+    latitude: 37.5402259,
+    longitude: 126.9867064,
   },
   {
     id: 7,
@@ -401,6 +413,8 @@ export const seoul = [
     가전: 세탁기,전자렌지,밥솥,커피포트,토스트기 구비`,
     peopleLimit: 2,
     price: [{ oneday: 90000 }, { commission: 24847 }, { total: 114847 }],
+    latitude: 37.566776,
+    longitude: 126.827282,
   },
   {
     id: 8,
@@ -456,6 +470,8 @@ export const seoul = [
     ✓ 재활용 쓰레기는 현관문 앞 분리수거함에 넣어주세요`,
     peopleLimit: 2,
     price: [{ oneday: 90000 }, { commission: 13977 }, { total: 103977 }],
+    latitude: 37.5616887,
+    longitude: 127.0279152,
   },
   {
     id: 9,
@@ -482,6 +498,8 @@ export const seoul = [
     오른쪽 손잡이를 잘 잡고 오르내리세요`,
     peopleLimit: 2,
     price: [{ oneday: 85000 }, { commission: 13200 }, { total: 98200 }],
+    latitude: 37.5317675,
+    longitude: 126.8467055,
   },
   {
     id: 10,
@@ -536,6 +554,8 @@ export const seoul = [
     *1인추가시에는 1층에 쇼파베드를 이용하실수있습니다.`,
     peopleLimit: 3,
     price: [{ oneday: 94000 }, { commission: 14598 }, { total: 108598 }],
+    latitude: 37.6676733,
+    longitude: 127.044208,
   },
   {
     id: 11,
@@ -586,6 +606,8 @@ export const seoul = [
     - 모두가 쾌적한 컨디션으로 머무를 수 있도록 다음 이용 고객을 위하여 필히 분리수거와 사용하신 식기 및 조리도구 설거지를 부탁드립니다.`,
     peopleLimit: 2,
     price: [{ oneday: 144000 }, { commission: 22362 }, { total: 166362 }],
+    latitude: 37.544569,
+    longitude: 127.055974,
   },
 ];
 export const busan = [
@@ -688,6 +710,8 @@ export const busan = [
    `,
     peopleLimit: 2,
     price: [{ oneday: 62100 }, { commission: 9644 }, { total: 71744 }],
+    latitude: 35.1786125,
+    longitude: 129.1997133,
   },
   {
     id: 13,
@@ -755,6 +779,8 @@ export const busan = [
    `,
     peopleLimit: 3,
     price: [{ oneday: 110000 }, { commission: 20000 }, { total: 130000 }],
+    latitude: 35.150071,
+    longitude: 129.111496,
   },
   {
     id: 14,
@@ -863,6 +889,8 @@ export const busan = [
    `,
     peopleLimit: 6,
     price: [{ oneday: 320000 }, { commission: 78577 }, { total: 398577 }],
+    latitude: 35.1546718,
+    longitude: 129.1201754,
   },
   {
     id: 15,
@@ -934,6 +962,8 @@ export const busan = [
    `,
     peopleLimit: 2,
     price: [{ oneday: 180000 }, { commission: 27953 }, { total: 207953 }],
+    latitude: 35.1534266,
+    longitude: 129.1179962,
   },
   {
     id: 16,
@@ -989,6 +1019,8 @@ export const busan = [
    `,
     peopleLimit: 2,
     price: [{ oneday: 100000 }, { commission: 15530 }, { total: 115530 }],
+    latitude: 35.154965,
+    longitude: 129.1224888,
   },
 ];
 export const jeju = [
@@ -1049,6 +1081,8 @@ export const jeju = [
    `,
     peopleLimit: 4,
     price: [{ oneday: 130000 }, { commission: 20188 }, { total: 150188 }],
+    latitude: 33.4865343,
+    longitude: 126.7036936,
   },
   {
     id: 18,
@@ -1099,6 +1133,8 @@ export const jeju = [
    `,
     peopleLimit: 4,
     price: [{ oneday: 119900 }, { commission: 18620 }, { total: 138520 }],
+    latitude: 33.3048942,
+    longitude: 126.249888,
   },
 ];
 export const jeonju = [
@@ -1159,6 +1195,8 @@ export const jeonju = [
    `,
     peopleLimit: 4,
     price: [{ oneday: 160000 }, { commission: 24847 }, { total: 184847 }],
+    latitude: 35.8175376,
+    longitude: 127.1520417,
   },
   {
     id: 20,
@@ -1204,13 +1242,15 @@ export const jeonju = [
    `,
     peopleLimit: 2,
     price: [{ oneday: 99960 }, { commission: 15523 }, { total: 115483 }],
+    latitude: 35.8205778,
+    longitude: 127.1447918,
   },
   {
     id: 21,
     name: "전주한옥스테이 yeoga_여가",
     src: [JeonjuC1, JeonjuC2, JeonjuC3, JeonjuC4, JeonjuC5],
     region: "전주",
-    address: "태조로",
+    address: "전주 태조로",
     hash: [
       { tag: "디자인" },
       { tag: "슈퍼호스트" },
@@ -1234,5 +1274,7 @@ export const jeonju = [
    `,
     peopleLimit: 2,
     price: [{ oneday: 180000 }, { commission: 27953 }, { total: 207953 }],
+    latitude: 35.8145287,
+    longitude: 127.1512936,
   },
 ];
