@@ -6,6 +6,8 @@ import { Dayjs } from "dayjs";
 import Place from "./place";
 import Date from "./date";
 import People from "./people";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   const router = useRouter();
   const path = router.asPath;
@@ -125,9 +127,11 @@ const Header = () => {
               incrementCount={incrementCount}
               childCount={childCount}
             />
-            <div onClick={handleSearch}>
-              <Button className="searchButton">검색</Button>
-            </div>
+          </div>
+          <div onClick={handleSearch}>
+            <Button className="searchButton">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </Button>
           </div>
         </div>
       </div>

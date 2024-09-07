@@ -103,6 +103,7 @@ export const HeaderStyled = styled.div`
       .peopleBox {
         display: flex;
         justify-content: center;
+        border-right: none;
       }
       .wrapBox {
         .checkInOutBox {
@@ -121,13 +122,12 @@ export const HeaderStyled = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 70px;
+        width: 50px;
         height: 50px;
-        border-radius: 60%;
+        border-radius: 50px;
         background-color: #ff5a5f;
         color: #ffffff;
         cursor: pointer;
-        margin-left: 10px;
 
         &:hover {
           background-color: #e04e53;

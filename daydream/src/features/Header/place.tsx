@@ -75,17 +75,23 @@ const Place = (props: any) => {
       setAutoComplete(placeData);
     }
   };
+  // 자동완성참조값. 아래 함수로 수정.
+  // const handleFocus = () => {
+  //   if (place.length > 0) {
+  //     // place에 값이 있을 때 초성 검색을 통해 자동 완성 목록 업데이트
+  //     const newData = placeData.filter(
+  //       (x) => x.includes(place) || includesChosung(x, place)
+  //     );
+  //     setAutoComplete(newData);
+  //   } else {
+  //     setAutoComplete(placeData); // place가 빈 문자열일 경우 모든 장소 데이터로 자동 완성 목록 업데이트
+  //   }
+  // };
+  // 처음 열릴 때는 무조건 전체 목록으로 초기화
   const handleFocus = () => {
-    if (place.length > 0) {
-      // place에 값이 있을 때 초성 검색을 통해 자동 완성 목록 업데이트
-      const newData = placeData.filter(
-        (x) => x.includes(place) || includesChosung(x, place)
-      );
-      setAutoComplete(newData);
-    } else {
-      setAutoComplete(placeData); // place가 빈 문자열일 경우 모든 장소 데이터로 자동 완성 목록 업데이트
-    }
+    setAutoComplete(placeData); // 값에 상관없이 전체 목록으로 초기화
   };
+
   const handleItemClick = (item: string) => {
     setPlace(item); // 클릭한 항목으로 place 상태 업데이트
     setAutoComplete([]); // 클릭 후 자동 완성 목록을 비웁니다

@@ -4,11 +4,11 @@ interface dataProps {
 
 const ShowRoom = ({ data }: dataProps) => {
   return (
-    <div className="itemBox">
+    <div className="items-Box">
       <img src={data.src[0].src} />
-      <div>{data.name}</div>
+      <div className="title">{data.name}</div>
       <div>{data.region}</div>
-      <div>1박 {data.price[2].total.toLocaleString()}원</div>
+      <div className="price">₩{data.price[2].total.toLocaleString()}/박</div>
     </div>
   );
 };

@@ -58,7 +58,7 @@ const MainPage = () => {
 
       {/* 메인화면. 방 목록 보여주기 */}
       <MainPageShowRoomStyled>
-        <div className="wrapBox">
+        <div className="itemBox">
           {newFilterData?.map((x: any, i: number) => {
             return <ShowRoom data={x} key={i} />;
           })}
