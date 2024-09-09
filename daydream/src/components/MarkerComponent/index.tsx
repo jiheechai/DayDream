@@ -1,8 +1,6 @@
 import { MarkerF, InfoWindowF } from "@react-google-maps/api";
 import { SelectedMarkerStyled } from "@/components/MarkerComponent/styled";
 import { useEffect } from "react";
-import hoverMarker from "@/assets/image/hoverMarker-removebg.png"; // 올바른 경로로 이미지 import
-import blueMarker from "@/assets/image/blueMarker-removebg.png";
 import redMarker from "@/assets/image/redMarker-removebg-preview.png";
 import blackMarker from "@/assets/image/blackMarker-removebg-preview.png";
 
@@ -28,7 +26,7 @@ const MarkerComponent = ({
   isHovered, // hover 상태 추가
 }: dataProps) => {
   useEffect(() => {
-    console.log("map.center updated: ", center);
+    // console.log("map.center updated: ", center);
   }, [center]);
 
   const handleCloseClick = () => {

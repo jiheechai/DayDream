@@ -1,8 +1,18 @@
 import React, { useState, ChangeEvent, useEffect, useRef } from "react";
 import { Input } from "antd";
 import type { InputRef } from "antd";
-const Place = (props: any) => {
-  const { setPlace, setAutoComplete, place, autoComplete } = props;
+interface dataProps {
+  setPlace: any;
+  setAutoComplete: any;
+  place: any;
+  autoComplete: any;
+}
+const Place = ({
+  setPlace,
+  setAutoComplete,
+  place,
+  autoComplete,
+}: dataProps) => {
   //여행지
   const placeData = [
     "서울",

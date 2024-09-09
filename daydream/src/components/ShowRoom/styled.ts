@@ -19,7 +19,13 @@ export const MainPageShowRoomStyled = styled.div`
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-
+    /* display: flex;
+    flex-direction: column; 
+    justify-content: space-between; */
+    height: 100%; /* 높이를 부모 grid와 맞춤 */
+    &:hover {
+      cursor: pointer;
+    }
     img {
       width: 100%;
       height: 265px;
@@ -29,7 +35,7 @@ export const MainPageShowRoomStyled = styled.div`
     }
 
     div > div {
-      margin: 8px 0;
+      margin: 8px;
     }
   }
 

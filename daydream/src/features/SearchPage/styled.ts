@@ -27,18 +27,24 @@ export const SearchStyled = styled.div`
   /* 반응형 디자인 */
   @media (max-width: 1200px) {
     .wrap-box {
-      flex-direction: column; /* 지도를 위로, 사진을 아래로 배치 */
-      height: auto; /* 높이를 자동으로 맞추기 */
+      flex: 1;
+      /* flex-direction: column; */
+      /* height: 120vh; */
+      /* height: auto;  */
     }
 
     .map-box {
-      height: 400px; /* 1200px 이하일 때 지도의 높이를 줄임 */
+      /* height: 300px !important; 1200px 이하일 때 지도의 높이를 줄임 */
+    }
+    .data-box {
+      flex: 2;
     }
   }
 
   @media (max-width: 768px) {
     .map-box {
-      height: 300px; /* 768px 이하일 때 지도의 높이를 더 줄임 */
+      /* height: 300px; 768px 이하일 때 지도의 높이를 줄임 */
+      flex: 2.3;
     }
 
     .wrap-box {
@@ -46,7 +52,7 @@ export const SearchStyled = styled.div`
     }
 
     .data-box {
-      height: auto; /* 모바일에서는 자동 높이 */
+      flex: 3.7;
     }
   }
 
@@ -57,6 +63,7 @@ export const SearchStyled = styled.div`
   }
 `;
 // import styled from "styled-components";
+
 // export const SearchStyled = styled.div`
 //   .wrap-box {
 //     display: flex;
@@ -89,16 +96,27 @@ export const SearchStyled = styled.div`
 //     }
 
 //     .map-box {
-//       height: 300px; /* 지도의 높이를 적절히 줄임 */
-//     }
-//     .wrapBox > div {
-//       flex: 0 0 calc(50% - 15px); /* 화면이 작아지면 두 개로 변경 */
+//       height: 400px; /* 1200px 이하일 때 지도의 높이를 줄임 */
 //     }
 //   }
 
 //   @media (max-width: 768px) {
-//     .wrapBox > div {
-//       flex: 0 0 calc(100% - 15px); /* 모바일에서는 한 개로 설정 */
+//     .map-box {
+//       height: 300px; /* 768px 이하일 때 지도의 높이를 더 줄임 */
+//     }
+
+//     .wrap-box {
+//       flex-direction: column;
+//     }
+
+//     .data-box {
+//       height: auto; /* 모바일에서는 자동 높이 */
+//     }
+//   }
+
+//   @media (max-width: 480px) {
+//     .map-box {
+//       height: 250px; /* 480px 이하일 때 지도의 높이를 더 줄임 */
 //     }
 //   }
 // `;

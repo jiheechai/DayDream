@@ -9,15 +9,40 @@ import { SearchPageShowRoomStyled } from "@/components/ShowRoom/searchpageStyled
 
 const SearchPage = () => {
   const router = useRouter();
-  const { place, checkInDate, checkOutDate, peopleNum } = router.query;
+  const {
+    place,
+    checkInDate,
+    checkOutDate,
+    peopleNum,
+    adultCount,
+    childCount,
+    infantCount,
+    petCount,
+  } = router.query;
   const allData = [...seoul, ...busan, ...jeju, ...jeonju];
   const filteredData = allData.filter(
     (item) => item.region === place && Number(peopleNum) <= item.peopleLimit
   );
-
+  // detail로 이동
+  const handleSearch = (id: number) => {
+    // URL의 쿼리 파라미터로 필요한 데이터 전달
+    router.push({
+      pathname: "/details",
+      query: {
+        clickCheckIn: checkInDate || "", // 체크인 날짜
+        clickCheckOut: checkOutDate || "", // 체크아웃 날짜
+        clickPeopleNum: peopleNum || "", // 인원 수
+        clickAdultCount: adultCount || "",
+        clickChildCount: childCount || "",
+        clickInfantNum: infantCount || "",
+        clickPetCount: petCount || "",
+        id: id,
+      },
+    });
+  };
   const containerStyle = {
-    width: "700px",
-    height: "800px",
+    width: "100%",
+    height: "100%",
   };
 
   const { isLoaded } = useJsApiLoader({
@@ -131,6 +156,9 @@ const SearchPage = () => {
                     key={i}
                     onMouseEnter={() => setHoveredMarkerId(x.id)} // hover 시작
                     onMouseLeave={() => setHoveredMarkerId(null)} // hover 종료
+                    onClick={() => {
+                      handleSearch(x.id);
+                    }}
                   >
                     <ShowRoom data={x} />
                   </div>
@@ -158,14 +186,25 @@ export default SearchPage;
 // import { SearchPageShowRoomStyled } from "@/components/ShowRoom/searchpageStyled";
 
 // const SearchPage = () => {
-//   // console.log("화면이 재랜더링 되는지 확인!!!!!!!!!!!");
 //   const router = useRouter();
 //   const { place, checkInDate, checkOutDate, peopleNum } = router.query;
 //   const allData = [...seoul, ...busan, ...jeju, ...jeonju];
 //   const filteredData = allData.filter(
 //     (item) => item.region === place && Number(peopleNum) <= item.peopleLimit
 //   );
-
+//   // detail로 이동
+//   const handleSearch = () => {
+//     // URL의 쿼리 파라미터로 필요한 데이터 전달
+//     router.push({
+//       pathname: "/details",
+//       query: {
+//         place: place || "", // 여행지
+//         checkInDate: checkInDate || "", // 체크인 날짜
+//         checkOutDate: checkOutDate || "", // 체크아웃 날짜
+//         peopleNum: peopleNum || "", // 인원 수
+//       },
+//     });
+//   };
 //   const containerStyle = {
 //     width: "700px",
 //     height: "800px",
@@ -173,13 +212,14 @@ export default SearchPage;
 
 //   const { isLoaded } = useJsApiLoader({
 //     id: "google-map-script",
-//     googleMapsApiKey: "AIzaSyARzbftw25anRK82_C4ynoH7_T8xX-BRyY", // 여기에 올바른 API 키를 입력하세요
+//     googleMapsApiKey: "AIzaSyARzbftw25anRK82_C4ynoH7_T8xX-BRyY", // 올바른 API 키를 입력하세요
 //   });
 
 //   const [center, setCenter] = useState<any>();
 //   const [map, setMap] = React.useState(null);
+//   const [hoveredMarkerId, setHoveredMarkerId] = useState<string | null>(null); // hover된 marker id 저장
+//   const [selectedMarker, setSelectedMarker] = useState<any>(null);
 
-//   // 장소에 따른 center 값 업데이트
 //   useEffect(() => {
 //     const newCenter =
 //       place === "서울"
@@ -209,15 +249,9 @@ export default SearchPage;
 //         : { lat: 37.5665, lng: 126.978 }; // 기본값 (서울의 좌표)
 //     setCenter(newCenter);
 //   }, [place]);
-
-//   const onLoad = useCallback(
-//     (mapInstance: any) => {
-//       // setMap(mapInstance);
-//       setMap(mapInstance); // center로 초기 설정
-//       console.log("map이 여러번 로딩되는건가???????");
-//     },
-//     [center]
-//   );
+//   const onLoad = useCallback((mapInstance: any) => {
+//     setMap(mapInstance);
+//   }, []);
 
 //   const onUnmount = useCallback(() => {
 //     setMap(null);
@@ -232,11 +266,9 @@ export default SearchPage;
 //     position: { lat: item.latitude, lng: item.longitude },
 //   }));
 
-//   const [selectedMarker, setSelectedMarker] = useState<any>(null);
-//   // selectedMarker가 변경될 때만 center를 업데이트
 //   useEffect(() => {
 //     if (selectedMarker) {
-//       setCenter(selectedMarker.position); // center를 한 번만 업데이트
+//       setCenter(selectedMarker.position);
 //     }
 //   }, [selectedMarker]);
 
@@ -247,10 +279,10 @@ export default SearchPage;
 //       stylers: [{ visibility: "off" }],
 //     },
 //   ];
+
 //   return (
 //     <SearchStyled>
 //       <div className="wrap-box">
-//         {/* 좌측 지도 */}
 //         <div className="map-box">
 //           {isLoaded ? (
 //             <GoogleMap
@@ -271,6 +303,7 @@ export default SearchPage;
 //                     center={center}
 //                     setCenter={setCenter}
 //                     onLoad={onLoad}
+//                     isHovered={Number(hoveredMarkerId) === marker.id} // hover 상태 전달
 //                   />
 //                 </div>
 //               ))}
@@ -279,13 +312,21 @@ export default SearchPage;
 //             <p>Loading map...</p>
 //           )}
 //         </div>
-//         {/* 우측 데이터 */}
 //         <div className="data-box">
 //           <SearchPageShowRoomStyled>
 //             {filteredData.length > 0 ? (
 //               <div className="itemBox">
 //                 {filteredData.map((x: any, i: number) => (
-//                   <ShowRoom data={x} key={i} />
+//                   <div
+//                     key={i}
+//                     onMouseEnter={() => setHoveredMarkerId(x.id)} // hover 시작
+//                     onMouseLeave={() => setHoveredMarkerId(null)} // hover 종료
+//                     onClick={() => {
+//                       router.push(`/details/${x.id}`);
+//                     }}
+//                   >
+//                     <ShowRoom data={x} />
+//                   </div>
 //                 ))}
 //               </div>
 //             ) : (

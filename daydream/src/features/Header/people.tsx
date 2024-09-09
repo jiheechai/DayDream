@@ -1,17 +1,27 @@
 import { Button, Input } from "antd";
 import React, { useState } from "react";
-const People = (props: any) => {
-  const {
-    setIsGuestSelectorVisible,
-    isGuestSelectorVisible,
-    peopleNum,
-    infantCount,
-    petCount,
-    adultCount,
-    decrementCount,
-    incrementCount,
-    childCount,
-  } = props;
+interface dataProps {
+  setIsGuestSelectorVisible: any;
+  isGuestSelectorVisible: any;
+  peopleNum: any;
+  infantCount: any;
+  petCount: any;
+  adultCount: any;
+  decrementCount: any;
+  incrementCount: any;
+  childCount: any;
+}
+const People = ({
+  setIsGuestSelectorVisible,
+  isGuestSelectorVisible,
+  peopleNum,
+  infantCount,
+  petCount,
+  adultCount,
+  decrementCount,
+  incrementCount,
+  childCount,
+}: dataProps) => {
   //여행자
   // const [peopleNum, setPeopleNum] = useState(0);
   // const [isGuestSelectorVisible, setIsGuestSelectorVisible] = useState(false);
@@ -64,8 +74,8 @@ const People = (props: any) => {
   }, []);
 
   return (
-    <div>
-      여행자
+    <>
+      <div className="people">여행자</div>
       <Input
         className="peoplenum"
         placeholder="여행자 추가"
@@ -102,7 +112,7 @@ const People = (props: any) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 export default People;

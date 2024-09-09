@@ -1,6 +1,6 @@
 import { HeaderStyled } from "./styled";
 import { useRouter } from "next/router";
-import { Input, Button } from "antd";
+import { Input, Button, Modal } from "antd";
 import React, { useState, useRef, ChangeEvent } from "react";
 import { Dayjs } from "dayjs";
 import Place from "./place";
@@ -8,7 +8,23 @@ import Date from "./date";
 import People from "./people";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import imageLogo from "@/assets/image/imageLogo.jpg";
+import Navbar from "./navbar";
+import MNav from "./MNav";
 const Header = () => {
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+
+  const showModal = () => {
+    setLoginModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setLoginModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setLoginModalOpen(false);
+  };
   const router = useRouter();
   const path = router.asPath;
   //place 컴포넌트. 여행지
@@ -23,6 +39,7 @@ const Header = () => {
   const rangePickerRef = useRef<any>(null); // RangePicker의 ref 생성
   const [checkInDate, setCheckInDate] = useState<string | null>(null);
   const [checkOutDate, setCheckOutDate] = useState<string | null>(null);
+  const [selectedDays, setSelectedDays] = useState<number>(0);
 
   //people 컴포넌트. 인원설정
   const [isGuestSelectorVisible, setIsGuestSelectorVisible] = useState(false);
@@ -43,7 +60,7 @@ const Header = () => {
     else if (type === "pet") setPetCount(petCount + 1);
   };
   const decrementCount = (type: string) => {
-    if (type === "adult" && adultCount > 0) {
+    if (type === "adult" && adultCount > 1) {
       setAdultCount(adultCount - 1);
       setPeopleNum(peopleNum - 1);
     } else if (type === "child" && childCount > 0) {
@@ -53,7 +70,7 @@ const Header = () => {
       setInfantCount(infantCount - 1);
     else if (type === "pet" && petCount > 0) setPetCount(petCount - 1);
   };
-
+  const defaultRangeValue = [null, null];
   // 검색 버튼 클릭 핸들러
   const handleSearch = () => {
     // URL의 쿼리 파라미터로 필요한 데이터 전달
@@ -63,7 +80,11 @@ const Header = () => {
         place: place || "", // 여행지
         checkInDate: checkInDate || "", // 체크인 날짜
         checkOutDate: checkOutDate || "", // 체크아웃 날짜
-        peopleNum: peopleNum.toString(), // 인원 수 (문자열로 변환)
+        peopleNum: peopleNum || "", // 인원 수
+        adultCount: adultCount || "",
+        childCount: childCount || "",
+        infantCount: infantCount || "",
+        petCount: petCount || "",
       },
     });
   };
@@ -75,11 +96,17 @@ const Header = () => {
     setDates([null, null]); // 날짜 초기화
     setCheckInDate(null); // 체크인 날짜 초기화
     setCheckOutDate(null); // 체크아웃 날짜 초기화
-    setPeopleNum(0); // 전체 인원 초기화
-    setAdultCount(0); // 성인 수 초기화
+    setPeopleNum(1); // 전체 인원 초기화
+    setAdultCount(1); // 성인 수 초기화
     setChildCount(0); // 아동 수 초기화
     setInfantCount(0); // 유아 수 초기화
     setPetCount(0); // 반려동물 수 초기화
+  };
+
+  // 모바일 navbar 핸들러
+  const [isMoved, setIsMoved] = useState(false);
+  const toggleMove = () => {
+    setIsMoved(!isMoved);
   };
 
   return (
@@ -92,49 +119,78 @@ const Header = () => {
             router.push("/"); // 메인 페이지로 이동
           }}
         >
-          백일몽
+          <img src={imageLogo.src} alt="로고" />
+          <div className="titleBox">백일몽</div>
         </div>
-        <div className="loginBox">로그인</div>
-      </div>
-      <div className={`nav ${path === "/login" ? "noneHead" : ""}`}>
-        <div className="navBox">
-          <div className="placeBox">
-            <Place
-              setPlace={setPlace}
-              setAutoComplete={setAutoComplete}
-              place={place}
-              autoComplete={autoComplete}
-            />
-          </div>
-          <div className="dateBox">
-            <Date
-              setDates={setDates}
-              setCheckInDate={setCheckInDate}
-              setCheckOutDate={setCheckOutDate}
-              rangePickerRef={rangePickerRef}
-              dates={dates}
-            />
-          </div>
-          <div className="peopleBox">
-            <People
-              setIsGuestSelectorVisible={setIsGuestSelectorVisible}
-              isGuestSelectorVisible={isGuestSelectorVisible}
-              peopleNum={peopleNum}
-              infantCount={infantCount}
-              petCount={petCount}
-              adultCount={adultCount}
-              decrementCount={decrementCount}
-              incrementCount={incrementCount}
-              childCount={childCount}
-            />
-          </div>
-          <div onClick={handleSearch}>
-            <Button className="searchButton">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </Button>
-          </div>
+        <div className="mobileDivBox" onClick={toggleMove}>
+          모바일용 navbar 공간!!
         </div>
+        <div className="loginBox" onClick={showModal}>
+          로그인
+        </div>
+        <Modal
+          title="준비중..."
+          open={loginModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <p>아직 개발중인 기능입니다 *^___^*</p>
+        </Modal>
       </div>
+
+      <MNav
+        place={place}
+        setPlace={setPlace}
+        autoComplete={autoComplete}
+        setAutoComplete={setAutoComplete}
+        dates={dates}
+        setDates={setDates}
+        setCheckInDate={setCheckInDate}
+        setCheckOutDate={setCheckOutDate}
+        setSelectedDays={setSelectedDays}
+        rangePickerRef={rangePickerRef}
+        defaultRangeValue={defaultRangeValue}
+        isGuestSelectorVisible={isGuestSelectorVisible}
+        setIsGuestSelectorVisible={setIsGuestSelectorVisible}
+        peopleNum={peopleNum}
+        adultCount={adultCount}
+        childCount={childCount}
+        infantCount={infantCount}
+        petCount={petCount}
+        decrementCount={decrementCount}
+        incrementCount={incrementCount}
+        handleSearch={handleSearch}
+        open={isMoved}
+        isOpen={setIsMoved}
+      />
+
+      <div className="navBox">
+        {/* navbar 컴포넌트 */}
+        <Navbar
+          place={place}
+          setPlace={setPlace}
+          autoComplete={autoComplete}
+          setAutoComplete={setAutoComplete}
+          dates={dates}
+          setDates={setDates}
+          setCheckInDate={setCheckInDate}
+          setCheckOutDate={setCheckOutDate}
+          setSelectedDays={setSelectedDays}
+          rangePickerRef={rangePickerRef}
+          defaultRangeValue={defaultRangeValue}
+          isGuestSelectorVisible={isGuestSelectorVisible}
+          setIsGuestSelectorVisible={setIsGuestSelectorVisible}
+          peopleNum={peopleNum}
+          adultCount={adultCount}
+          childCount={childCount}
+          infantCount={infantCount}
+          petCount={petCount}
+          decrementCount={decrementCount}
+          incrementCount={incrementCount}
+          handleSearch={handleSearch}
+        />
+      </div>
+      {/* </div> */}
     </HeaderStyled>
   );
 };

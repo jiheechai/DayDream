@@ -12,8 +12,10 @@ import landmark from "@/assets/image/landmark.jpg";
 import superHost from "@/assets/image/superHost.webp";
 import { useState } from "react";
 import FilterComponent from "@/components/FilterComponent";
+import { useRouter } from "next/router";
 
 const MainPage = () => {
+  const router = useRouter();
   const allData = [...seoul, ...busan, ...jeju, ...jeonju];
   const filterData = [
     { title: "최고의 전망", src: bestView },
@@ -38,6 +40,23 @@ const MainPage = () => {
     );
     setNewFilterData(newData);
   };
+  // detail로 이동
+  const handleSearch = (id: number) => {
+    // URL의 쿼리 파라미터로 필요한 데이터 전달
+    router.push({
+      pathname: "/details",
+      query: {
+        clickCheckIn: "", // 체크인 날짜
+        clickCheckOut: "", // 체크아웃 날짜
+        clickPeopleNum: "", // 인원 수
+        clickAdultCount: "",
+        clickChildCount: "",
+        clickInfantNum: "",
+        clickPetCount: "",
+        id: id,
+      },
+    });
+  };
   return (
     <>
       {/* 메인화면 위 필터. */}
@@ -59,9 +78,17 @@ const MainPage = () => {
       {/* 메인화면. 방 목록 보여주기 */}
       <MainPageShowRoomStyled>
         <div className="itemBox">
-          {newFilterData?.map((x: any, i: number) => {
-            return <ShowRoom data={x} key={i} />;
-          })}
+          {newFilterData?.map((x: any, i: number) => (
+            <div
+              className="itemOnClick"
+              key={i}
+              onClick={() => {
+                handleSearch(x.id);
+              }}
+            >
+              <ShowRoom data={x} />
+            </div>
+          ))}
         </div>
       </MainPageShowRoomStyled>
     </>
