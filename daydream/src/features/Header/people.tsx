@@ -22,36 +22,6 @@ const People = ({
   incrementCount,
   childCount,
 }: dataProps) => {
-  //여행자
-  // const [peopleNum, setPeopleNum] = useState(0);
-  // const [isGuestSelectorVisible, setIsGuestSelectorVisible] = useState(false);
-  // const [adultCount, setAdultCount] = useState(0);
-  // const [childCount, setChildCount] = useState(0);
-  // const [infantCount, setInfantCount] = useState(0);
-  // const [petCount, setPetCount] = useState(0);
-  // // 인원 조절 핸들러
-  // const incrementCount = (type: string) => {
-  //   if (type === "adult") {
-  //     setPeopleNum(peopleNum + 1);
-  //     setAdultCount(adultCount + 1);
-  //   } else if (type === "child") {
-  //     setPeopleNum(peopleNum + 1);
-  //     setChildCount(childCount + 1);
-  //   } else if (type === "infant") setInfantCount(infantCount + 1);
-  //   else if (type === "pet") setPetCount(petCount + 1);
-  // };
-  // const decrementCount = (type: string) => {
-  //   if (type === "adult" && adultCount > 0) {
-  //     setAdultCount(adultCount - 1);
-  //     setPeopleNum(peopleNum - 1);
-  //   } else if (type === "child" && childCount > 0) {
-  //     setChildCount(childCount - 1);
-  //     setPeopleNum(peopleNum - 1);
-  //   } else if (type === "infant" && infantCount > 0)
-  //     setInfantCount(infantCount - 1);
-  //   else if (type === "pet" && petCount > 0) setPetCount(petCount - 1);
-  // };
-
   // 팝업 열기/닫기 핸들러
   const toggleGuestSelector = () => {
     setIsGuestSelectorVisible(!isGuestSelectorVisible);
@@ -77,8 +47,8 @@ const People = ({
     <>
       <div className="people">여행자</div>
       <Input
+        defaultValue="게스트 추가"
         className="peoplenum"
-        placeholder="여행자 추가"
         onClick={toggleGuestSelector}
         value={`게스트${peopleNum}, 유아 ${infantCount}, 반려동물 ${petCount}`}
         readOnly

@@ -71,16 +71,16 @@ const Header = () => {
     else if (type === "pet" && petCount > 0) setPetCount(petCount - 1);
   };
   const defaultRangeValue = [null, null];
-  // 검색 버튼 클릭 핸들러
+
+  // pc 헤더 검색 버튼 클릭 핸들러
   const handleSearch = () => {
-    // URL의 쿼리 파라미터로 필요한 데이터 전달
     router.push({
       pathname: "/search",
       query: {
-        place: place || "", // 여행지
-        checkInDate: checkInDate || "", // 체크인 날짜
-        checkOutDate: checkOutDate || "", // 체크아웃 날짜
-        peopleNum: peopleNum || "", // 인원 수
+        place: place || "",
+        checkInDate: checkInDate || "",
+        checkOutDate: checkOutDate || "",
+        peopleNum: peopleNum || "",
         adultCount: adultCount || "",
         childCount: childCount || "",
         infantCount: infantCount || "",
@@ -88,7 +88,23 @@ const Header = () => {
       },
     });
   };
-
+  // 모바일 헤더 검색 버튼 클릭 핸들러
+  const MhandleSearch = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        place: place || "",
+        checkInDate: checkInDate || "",
+        checkOutDate: checkOutDate || "",
+        peopleNum: peopleNum || "",
+        adultCount: adultCount || "",
+        childCount: childCount || "",
+        infantCount: infantCount || "",
+        petCount: petCount || "",
+      },
+    });
+    setIsMoved(false);
+  };
   // 상태 초기화 핸들러
   const resetStates = () => {
     setPlace(""); // 여행지 초기화
@@ -108,6 +124,8 @@ const Header = () => {
   const toggleMove = () => {
     setIsMoved(!isMoved);
   };
+  console.log("장소:", place);
+  console.log("날짜:", dates);
 
   return (
     <HeaderStyled>
@@ -123,7 +141,19 @@ const Header = () => {
           <div className="titleBox">백일몽</div>
         </div>
         <div className="mobileDivBox" onClick={toggleMove}>
-          모바일용 navbar 공간!!
+          {place == "" ? (
+            <div className="question">어디로 여행가세요?</div>
+          ) : (
+            <>
+              {place && <div>{place} </div>}
+              {dates[0] && dates[1] && (
+                <div>
+                  {dates[0].format("MM.DD")} ~ {dates[1].format("MM.DD")}
+                </div>
+              )}
+              {peopleNum && <div> 게스트 {peopleNum}명</div>}
+            </>
+          )}
         </div>
         <div className="loginBox" onClick={showModal}>
           로그인
@@ -159,9 +189,9 @@ const Header = () => {
         petCount={petCount}
         decrementCount={decrementCount}
         incrementCount={incrementCount}
-        handleSearch={handleSearch}
         open={isMoved}
         isOpen={setIsMoved}
+        MhandleSearch={MhandleSearch}
       />
 
       <div className="navBox">

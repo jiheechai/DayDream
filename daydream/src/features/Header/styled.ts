@@ -30,9 +30,6 @@ export const HeaderStyled = styled.div`
     }
     .mobileDivBox {
       display: none;
-      &:hover {
-        cursor: pointer;
-      }
     }
 
     .loginBox {
@@ -50,11 +47,6 @@ export const HeaderStyled = styled.div`
     display: none !important;
   }
 
-  /* .navBox */
-  /* .nav { */
-  /* width: 100%;
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); */
   .navBox {
     display: flex;
     align-items: center;
@@ -64,7 +56,7 @@ export const HeaderStyled = styled.div`
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
-    width: 60%;
+    width: 70%;
     margin: 20px auto;
     position: relative;
     .placeBox,
@@ -190,10 +182,6 @@ export const HeaderStyled = styled.div`
       }
     }
   }
-  /* } */
-  .navBox.mobile {
-    display: none;
-  }
 
   .selectPeoplenumBox {
     font-size: medium;
@@ -251,7 +239,7 @@ export const HeaderStyled = styled.div`
   }
   @media (max-width: 1024px) {
     .navBox {
-      width: 100%; /* 화면이 작아졌을 때 width 증가 */
+      width: 90%; /* 화면이 작아졌을 때 width 증가 */
       padding: 10px; /* 패딩 조정으로 요소들 간격 조정 */
     }
   }
@@ -262,28 +250,38 @@ export const HeaderStyled = styled.div`
         display: none;
       }
       .mobileDivBox {
-        display: block;
+        display: flex;
+        color: gray;
+        &:hover {
+          cursor: pointer;
+        }
+        width: 58%;
+        border: 1px solid lightgray;
+        border-radius: 28px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 12px;
+        gap: 5px;
+        justify-content: space-between;
+        div {
+          flex-grow: 1;
+          border-right: 1px solid #e0e0e0;
+          text-align: center;
+          /* padding: 0 8px; */
+          &:last-child {
+            border-right: none;
+          }
+        }
+        .question {
+          /* color: lightgray !important; */
+        }
       }
     }
-
     .navBox {
       display: none !important;
       width: 100%; /* 모바일 화면에서 더 넓게 보이도록 설정 */
       padding: 5px; /* 패딩을 줄여서 화면에 내용이 꽉 차게 */
       flex-direction: column; /* 세로 정렬로 변경 */
       gap: 10px; /* 요소들 간격을 더 넓게 */
-    }
-    .navBox.mobile {
-      display: flex !important;
-      transition: transform 0.5s ease; /* 부드러운 이동 효과 */
-
-      /* 초기 위치 */
-      transform: translateY(-500px);
-
-      /* 이동 상태일 때 y축 300px 아래로 이동 */
-      &.moved {
-        transform: translateY(0);
-      }
     }
 
     .placeBox,
@@ -302,45 +300,19 @@ export const HeaderStyled = styled.div`
       }
       .placeRefBox {
         ul {
-          /* position: absolute;
-            background-color: #ffffff;
-            border-radius: 12px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-            padding: 20px;
-            width: 300px;
-            z-index: 10;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px; */
           padding: 10px !important;
           width: 210px !important;
           gap: 5px !important;
           li {
-            /* border: 1px solid #e0e0e0;
-              width: 50px;
-              padding: 10px 15px;
-              margin: 5px;
-              border-radius: 20px;
-              list-style: none;
-              text-align: center;
-              cursor: pointer;
-              font-size: 16px;
-              transition: background-color 0.3s ease;  */
             font-size: 14px !important;
             width: 40px !important;
             padding: 7px 7px !important;
           }
 
           li:hover {
-            /* background-color: #f0f0f0; */
-            /* font-weight: bold; */
           }
         }
       }
-    }
-
-    .peopleBox {
-      /* border-bottom: none; */
     }
 
     .searchButton {
@@ -352,15 +324,6 @@ export const HeaderStyled = styled.div`
       top: 70%;
       width: 78%;
       right: 5%;
-      /* right: 0%;
-    background-color: #ffffff; 
-    border-radius: 12px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 20px;
-    width: 300px; 
-    z-index: 10; 
-    display: flex;
-    flex-direction: column; */
     }
   }
 `;

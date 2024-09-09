@@ -7,6 +7,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Dayjs } from "dayjs";
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import close from "@/assets/image/close.png";
 interface dataProps {
   place: any;
   setPlace: any;
@@ -28,9 +29,9 @@ interface dataProps {
   petCount: number;
   decrementCount: any;
   incrementCount: any;
-  handleSearch: any;
   open: boolean;
   isOpen: any;
+  MhandleSearch: any;
 }
 
 const MNav = ({
@@ -54,13 +55,21 @@ const MNav = ({
   petCount,
   decrementCount,
   incrementCount,
-  handleSearch,
   open,
   isOpen,
+  MhandleSearch,
 }: dataProps) => {
   return (
     <MNavStyled>
       <div className={`MnavBox ${open ? "open" : ""}`}>
+        <div
+          className="closeMnavBox"
+          onClick={() => {
+            isOpen(false);
+          }}
+        >
+          <img src={close.src} alt="창닫기" />
+        </div>
         <div className="placeBox">
           <Place
             setPlace={setPlace}
@@ -93,7 +102,7 @@ const MNav = ({
             childCount={childCount}
           />
         </div>
-        <div className="btnBox" onClick={handleSearch}>
+        <div className="btnBox" onClick={MhandleSearch}>
           <Button className="searchButton">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </Button>
