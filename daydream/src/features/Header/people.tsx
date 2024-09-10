@@ -43,6 +43,11 @@ const People = ({
     };
   }, []);
 
+  // 확인 버튼 클릭 핸들러
+  const handleConfirm = () => {
+    setIsGuestSelectorVisible(false);
+  };
+
   return (
     <>
       <div className="people">여행자</div>
@@ -79,6 +84,9 @@ const People = ({
             <Button onClick={() => decrementCount("pet")}>-</Button>
             {petCount}
             <Button onClick={() => incrementCount("pet")}>+</Button>
+          </div>
+          <div className="okBox" onClick={handleConfirm}>
+            확인
           </div>
         </div>
       )}
