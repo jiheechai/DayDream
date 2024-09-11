@@ -172,7 +172,10 @@ export const NavStyled = styled.div`
   }
   @media (max-width: 768px) {
     .navBox {
-      /* display: none !important; */
+      display: none !important;
+      .selectPeoplenumBox {
+        display: none !important;
+      }
     }
   }
 `;
