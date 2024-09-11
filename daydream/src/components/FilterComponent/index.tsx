@@ -11,7 +11,7 @@ const FilterComponent = ({ clickFilter, clickFilterItem, data }: dataProps) => {
         clickFilterItem(data.title);
       }}
     >
-      <img src={data.src.src} />
+      <img src={data.src.src} alt="image" />
       <div>{data.title}</div>
     </div>
   );
