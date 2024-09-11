@@ -22,6 +22,8 @@ export const FilterComponentStyled = styled.div`
       text-align: center;
       width: 120px;
       height: 80px;
+      /* width: 9%;
+      height: 60px; */
       transition: all 0.2s ease;
       border: 1px solid transparent;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -36,6 +38,18 @@ export const FilterComponentStyled = styled.div`
         /* active 클래스가 있을 때 스타일 */
         font-weight: bold; /* 글씨를 굵게 */
         border: 1px solid gray;
+      }
+    }
+
+    /* 작은 모바일 기기 */
+    @media (max-width: 480px) {
+      .filterItems {
+        height: 60px;
+        img {
+          width: 22px;
+          height: 20px;
+        }
+        font-size: 7px;
       }
     }
   }

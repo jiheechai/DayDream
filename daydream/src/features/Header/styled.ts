@@ -35,7 +35,7 @@ export const HeaderStyled = styled.div`
         display: none;
       }
       .loginBox {
-        font-size: 16px;
+        font-size: medium;
         color: #ff5a5f;
         cursor: pointer;
         margin: 10px;
@@ -82,6 +82,14 @@ export const HeaderStyled = styled.div`
       .desktopNavBox {
         display: none;
       }
+    }
+  }
+
+  /* 작은 모바일 기기 */
+  @media (max-width: 480px) {
+    .loginBox {
+      font-size: x-small !important;
+      margin: 0 !important;
     }
   }
 `;

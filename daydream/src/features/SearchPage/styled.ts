@@ -19,19 +19,15 @@ export const SearchStyled = styled.div`
     .data-box {
       width: 100%;
       box-sizing: border-box;
+      .noResult-box {
+        font-weight: bold;
+        margin: 8%;
+      }
     }
   }
 
   /* 반응형 디자인 */
   @media (max-width: 1200px) {
-    /* .wrap-box {
-      .map-box {
-        width: 100%;
-      }
-      .data-box {
-        width: 100%;
-      }
-    } */
   }
 
   @media (max-width: 768px) {

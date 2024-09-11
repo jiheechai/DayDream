@@ -1,6 +1,3 @@
-interface dataProps {
-  data: any;
-}
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -8,11 +5,21 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import SwiperCore from "swiper";
+
+interface dataProps {
+  data: any;
+}
 
 const ShowItems = ({ data }: dataProps) => {
   const router = useRouter();
+  const swiperRef = useRef<SwiperCore | null>(null);
+
+  // 상태값으로 첫 슬라이드인지 마지막 슬라이드인지 체크
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
   // detail로 이동
   const handleSearch = (id: number, e: any) => {
     const target = e.target as HTMLElement;
@@ -24,6 +31,7 @@ const ShowItems = ({ data }: dataProps) => {
     ) {
       return;
     }
+
     // URL의 쿼리 파라미터로 필요한 데이터 전달
     router.push({
       pathname: "/details",
@@ -39,7 +47,7 @@ const ShowItems = ({ data }: dataProps) => {
       },
     });
   };
-  const swiperRef = useRef<SwiperCore | null>(null);
+
   return (
     <div
       className="items-Box"
@@ -52,30 +60,28 @@ const ShowItems = ({ data }: dataProps) => {
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
+        onSlideChange={(swiper) => {
+          setIsBeginning(swiper.isBeginning); // 첫 슬라이드 여부 업데이트
+          setIsEnd(swiper.isEnd); // 마지막 슬라이드 여부 업데이트
+        }}
         modules={[Navigation, Pagination, Scrollbar, A11y]} // 필요한 모듈 추가
         spaceBetween={50} // 슬라이드 간의 간격
         slidesPerView={1} // 한 번에 보여줄 슬라이드 수
-        navigation // 네비게이션 버튼
-        pagination={{ clickable: true }} // 페이지 네비게이션 활성화
-        scrollbar={{ draggable: true }} // 스크롤바 활성화
+        pagination={{
+          clickable: true, // 페이지네이션 점을 클릭할 수 있음
+          dynamicBullets: true, // 동적 페이지네이션
+        }}
+        scrollbar={{ draggable: true }} // 스크롤바 추가
+        navigation
       >
-        <SwiperSlide>
-          <img src={data.src[0].src} alt="image1" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={data.src[1].src} alt="image2" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={data.src[2].src} alt="image3" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={data.src[3].src} alt="image4" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={data.src[4].src} alt="image5" />
-        </SwiperSlide>
+        {data.src.map((image: any, index: number) => (
+          <SwiperSlide key={index}>
+            <img src={image.src} alt={`image${index + 1}`} />
+          </SwiperSlide>
+        ))}
       </Swiper>
-      {/* <img src={data.src[0].src} /> */}
+
+      {/* 콘텐츠 박스 */}
       <div className="contentBox">
         <div className="title">{data.name}</div>
         <div>[{data.region}]</div>
@@ -84,4 +90,5 @@ const ShowItems = ({ data }: dataProps) => {
     </div>
   );
 };
+
 export default ShowItems;

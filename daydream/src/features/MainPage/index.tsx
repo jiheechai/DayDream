@@ -1,4 +1,3 @@
-import ShowRoom from "@/components/ShowRoom";
 import { seoul, busan, jeju, jeonju } from "@/utill/data";
 import { FilterComponentStyled } from "@/components/FilterComponent/styled";
 import bag from "@/assets/image/bag.jpg";
@@ -41,23 +40,7 @@ const MainPage = () => {
     );
     setNewFilterData(newData);
   };
-  // // detail로 이동
-  // const handleSearch = (id: number) => {
-  //   // URL의 쿼리 파라미터로 필요한 데이터 전달
-  //   router.push({
-  //     pathname: "/details",
-  //     query: {
-  //       clickCheckIn: "", // 체크인 날짜
-  //       clickCheckOut: "", // 체크아웃 날짜
-  //       clickPeopleNum: "", // 인원 수
-  //       clickAdultCount: "",
-  //       clickChildCount: "",
-  //       clickInfantNum: "",
-  //       clickPetCount: "",
-  //       id: id,
-  //     },
-  //   });
-  // };
+
   return (
     <MainPageStyledComponent>
       {/* 메인화면 위 필터. */}

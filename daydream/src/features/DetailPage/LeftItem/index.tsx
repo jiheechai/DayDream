@@ -51,7 +51,7 @@ const LeftItem = ({
             {/* <div className="describeTitle">숙소 소개 </div> */}
             {select.describe}
           </div>
-          <Button ref={buttonRef} onClick={toggleExpand}>
+          <Button type="link" ref={buttonRef} onClick={toggleExpand}>
             {isExpanded ? "간략히 보기" : "더 보기"}
           </Button>
         </div>
@@ -59,7 +59,7 @@ const LeftItem = ({
         {/* 테블릿, 모바일 버전 설명 : 모달 */}
         <div className="mobileDescibe-container">
           <div className="mobileDescribe">{select.describe}</div>
-          <Button type="primary" onClick={() => setOpen(true)}>
+          <Button type="link" onClick={() => setOpen(true)}>
             더보기
           </Button>
           <Modal

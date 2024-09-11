@@ -20,9 +20,6 @@ export const MainPageShowItemsStyled = styled.div`
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    /* display: flex; */
-    /* flex-direction: column;  */
-    /* justify-content: space-between; */
     height: 100%; /* 높이를 부모 grid와 맞춤 */
     &:hover {
       cursor: pointer;
@@ -47,32 +44,32 @@ export const MainPageShowItemsStyled = styled.div`
   /* swiper */
   /* 이전 버튼 (왼쪽 화살표) */
   .swiper-button-prev {
-    background-color: rgba(0, 0, 0, 0.5); /* 반투명한 검정 배경 */
-    width: 50px; /* 버튼의 너비 */
-    height: 50px; /* 버튼의 높이 */
-    border-radius: 50%; /* 둥근 버튼 */
-    color: white; /* 화살표 색상 */
-    font-size: 20px; /* 화살표 크기 */
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
   }
   /* 다음 버튼 (오른쪽 화살표) */
   .swiper-button-next {
-    background-color: rgba(0, 0, 0, 0.5); /* 반투명한 검정 배경 */
+    background-color: rgba(0, 0, 0, 0.5);
     width: 50px;
     height: 50px;
-    border-radius: 50%; /* 둥근 버튼 */
+    border-radius: 50%;
     color: white;
     font-size: 20px;
   }
   /* 버튼에 hover 효과 */
   .swiper-button-prev:hover,
   .swiper-button-next:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* hover 시 더 진해지는 배경색 */
+    background-color: rgba(0, 0, 0, 0.7);
   }
   /* 화살표 자체 스타일 변경 */
   .swiper-button-prev:after,
   .swiper-button-next:after {
-    font-size: 24px; /* 화살표 크기 */
-    font-weight: bold; /* 굵은 화살표 */
+    font-size: 24px;
+    font-weight: bold;
   }
 
   /* 반응형 미디어 쿼리 */
@@ -92,6 +89,19 @@ export const MainPageShowItemsStyled = styled.div`
       img {
         height: 250px; /* 모바일에서 이미지 높이 조정 */
       }
+    }
+  }
+
+  /* 작은 모바일 기기 */
+  @media (max-width: 480px) {
+    /* swiper */
+    /* 이전 버튼 (왼쪽 화살표) */
+    .swiper-button-prev {
+      display: none;
+    }
+    /* 다음 버튼 (오른쪽 화살표) */
+    .swiper-button-next {
+      display: none;
     }
   }
 `;

@@ -163,7 +163,13 @@ const SearchPage = () => {
                 ))}
               </div>
             ) : (
-              <p>No matching results found.</p>
+              <>
+                <div className="noResult-box">
+                  검색 조건에 맞는 숙소가 없습니다.
+                  <br />
+                  인원수를 줄이거나 다른 지역으로 검색해보세요!
+                </div>
+              </>
             )}
           </SearchPageShowRoomStyled>
         </div>

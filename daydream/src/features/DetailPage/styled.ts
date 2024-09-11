@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const DetailStyledComponent = styled.div`
   padding-top: 180px;
   padding-bottom: 100px;
+  width: 100%;
   .wrap-container {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
     max-width: 1200px;
     display: flex;
@@ -12,7 +13,7 @@ export const DetailStyledComponent = styled.div`
     margin: 0 auto;
     /* 타이틀 */
     .name-container {
-      width: 100%;
+      /* width: 100%; */
       font-size: 2em;
       font-weight: bold;
       /* margin: 15px 0; */
@@ -23,10 +24,7 @@ export const DetailStyledComponent = styled.div`
       margin: 30px 0px;
       max-width: 1200px;
       display: flex;
-      width: 100%;
-
-      RightItem {
-      }
+      /* width: 100%; */
     }
 
     /* 구글맵 */
@@ -42,9 +40,11 @@ export const DetailStyledComponent = styled.div`
   @media (max-width: 1024px) {
     .name-container {
       font-size: 1.7em !important;
+      padding: 15px;
     }
     .middle-text-container {
       flex-direction: column;
+      margin: 7px 15px !important;
     }
   }
   /* 모바일 사이즈에서 적용될 스타일 */
@@ -53,8 +53,10 @@ export const DetailStyledComponent = styled.div`
     .name-container {
       font-size: 1.5em !important;
     }
-    .map-box {
-      height: 400px !important;
-    }
+  }
+
+  /* 작은 모바일 기기 */
+  @media (max-width: 480px) {
+    width: 100%;
   }
 `;
