@@ -7,7 +7,7 @@ interface dataProps {
   info: any;
 }
 
-export const RoomMarkerComponent = ({ lat, lng, info }: dataProps) => (
+const RoomMarkerComponent = ({ lat, lng, info }: dataProps) => (
   <RoomMarkerBox>
     <img src={mark.src} alt="" />
   </RoomMarkerBox>

@@ -37,8 +37,8 @@ const Header = () => {
 
   //people 컴포넌트.
   const [isGuestSelectorVisible, setIsGuestSelectorVisible] = useState(false);
-  const [peopleNum, setPeopleNum] = useState(0);
-  const [adultCount, setAdultCount] = useState(0);
+  const [peopleNum, setPeopleNum] = useState(1);
+  const [adultCount, setAdultCount] = useState(1);
   const [childCount, setChildCount] = useState(0);
   const [infantCount, setInfantCount] = useState(0);
   const [petCount, setPetCount] = useState(0);
@@ -125,45 +125,79 @@ const Header = () => {
   return (
     <>
       <HeaderStyled>
-        <div className="topBox">
-          <div
-            className="logoBox"
-            onClick={() => {
-              resetStates(); // 상태 초기화
-              router.push("/"); // 메인 페이지로 이동
-            }}
-          >
-            <img src={imageLogo.src} alt="로고" />
-            <div className="titleBox">백일몽</div>
+        <div className="wrapBox">
+          <div className="topBox">
+            {/* 로고 */}
+            <div
+              className="logoBox"
+              onClick={() => {
+                resetStates(); // 상태 초기화
+                router.push("/"); // 메인 페이지로 이동
+              }}
+            >
+              <img src={imageLogo.src} alt="로고" />
+              <div className="titleBox">백일몽</div>
+            </div>
+            {/* 모바일 div */}
+            <div className="mobileDivBox" onClick={toggleMove}>
+              {place == "" ? (
+                <div className="question">어디로 여행가세요?</div>
+              ) : (
+                <>
+                  {place && <div>{place} </div>}
+                  {dates[0] && dates[1] && (
+                    <div>
+                      {dates[0].format("MM.DD")} ~ {dates[1].format("MM.DD")}
+                    </div>
+                  )}
+                  {peopleNum && <div> 게스트 {peopleNum}명</div>}
+                </>
+              )}
+            </div>
+            {/* 로그인 */}
+            <div className="loginBox" onClick={showModal}>
+              로그인
+            </div>
+            <Modal
+              title="준비중..."
+              open={loginModalOpen}
+              onOk={handleOk}
+              onCancel={handleCancel}
+            >
+              <p>아직 개발중인 기능입니다 *^___^*</p>
+            </Modal>
           </div>
-          <div className="mobileDivBox" onClick={toggleMove}>
-            {place == "" ? (
-              <div className="question">어디로 여행가세요?</div>
-            ) : (
-              <>
-                {place && <div>{place} </div>}
-                {dates[0] && dates[1] && (
-                  <div>
-                    {dates[0].format("MM.DD")} ~ {dates[1].format("MM.DD")}
-                  </div>
-                )}
-                {peopleNum && <div> 게스트 {peopleNum}명</div>}
-              </>
-            )}
+
+          {/* pc navbar 컴포넌트 */}
+          <div className="desktopNavBox">
+            <Nav
+              place={place}
+              setPlace={setPlace}
+              autoComplete={autoComplete}
+              setAutoComplete={setAutoComplete}
+              dates={dates}
+              setDates={setDates}
+              setCheckInDate={setCheckInDate}
+              setCheckOutDate={setCheckOutDate}
+              setSelectedDays={setSelectedDays}
+              rangePickerRef={rangePickerRef}
+              defaultRangeValue={defaultRangeValue}
+              isGuestSelectorVisible={isGuestSelectorVisible}
+              setIsGuestSelectorVisible={setIsGuestSelectorVisible}
+              peopleNum={peopleNum}
+              adultCount={adultCount}
+              childCount={childCount}
+              infantCount={infantCount}
+              petCount={petCount}
+              decrementCount={decrementCount}
+              incrementCount={incrementCount}
+              handleSearch={handleSearch}
+            />
           </div>
-          <div className="loginBox" onClick={showModal}>
-            로그인
-          </div>
-          <Modal
-            title="준비중..."
-            open={loginModalOpen}
-            onOk={handleOk}
-            onCancel={handleCancel}
-          >
-            <p>아직 개발중인 기능입니다 *^___^*</p>
-          </Modal>
         </div>
       </HeaderStyled>
+
+      {/* filter */}
 
       {/* mobile navbar 컴포넌트 */}
       <MNav
@@ -190,31 +224,6 @@ const Header = () => {
         open={isMoved}
         isOpen={setIsMoved}
         MhandleSearch={MhandleSearch}
-      />
-
-      {/* pc navbar 컴포넌트 */}
-      <Nav
-        place={place}
-        setPlace={setPlace}
-        autoComplete={autoComplete}
-        setAutoComplete={setAutoComplete}
-        dates={dates}
-        setDates={setDates}
-        setCheckInDate={setCheckInDate}
-        setCheckOutDate={setCheckOutDate}
-        setSelectedDays={setSelectedDays}
-        rangePickerRef={rangePickerRef}
-        defaultRangeValue={defaultRangeValue}
-        isGuestSelectorVisible={isGuestSelectorVisible}
-        setIsGuestSelectorVisible={setIsGuestSelectorVisible}
-        peopleNum={peopleNum}
-        adultCount={adultCount}
-        childCount={childCount}
-        infantCount={infantCount}
-        petCount={petCount}
-        decrementCount={decrementCount}
-        incrementCount={incrementCount}
-        handleSearch={handleSearch}
       />
     </>
   );

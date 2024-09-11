@@ -1,10 +1,14 @@
 import styled from "styled-components";
 export const FilterComponentStyled = styled.div`
   .filterBox {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
     display: flex;
     justify-content: center;
     font-size: small;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    background-color: #ffffff;
     .filterItems {
       img {
         width: 25px;
@@ -22,6 +26,7 @@ export const FilterComponentStyled = styled.div`
       border: 1px solid transparent;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       border-radius: 20px;
+      background-color: #ffffff;
       cursor: pointer;
       &:hover {
         font-weight: bold; /* hover 시 텍스트를 굵게 */

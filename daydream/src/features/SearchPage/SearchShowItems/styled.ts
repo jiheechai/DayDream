@@ -42,6 +42,37 @@ export const SearchPageShowRoomStyled = styled.div`
     }
   }
 
+  /* swiper */
+  /* 이전 버튼 (왼쪽 화살표) */
+  .swiper-button-prev {
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명한 검정 배경 */
+    width: 50px; /* 버튼의 너비 */
+    height: 50px; /* 버튼의 높이 */
+    border-radius: 50%; /* 둥근 버튼 */
+    color: white; /* 화살표 색상 */
+    font-size: 20px; /* 화살표 크기 */
+  }
+  /* 다음 버튼 (오른쪽 화살표) */
+  .swiper-button-next {
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명한 검정 배경 */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* 둥근 버튼 */
+    color: white;
+    font-size: 20px;
+  }
+  /* 버튼에 hover 효과 */
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* hover 시 더 진해지는 배경색 */
+  }
+  /* 화살표 자체 스타일 변경 */
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    font-size: 24px; /* 화살표 크기 */
+    font-weight: bold; /* 굵은 화살표 */
+  }
+
   /* 반응형 미디어 쿼리 */
   //태블릿
   @media (max-width: 1024px) {

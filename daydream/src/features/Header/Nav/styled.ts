@@ -10,8 +10,11 @@ export const NavStyled = styled.div`
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     width: 70%;
-    margin: 20px auto;
+    margin: 0 auto;
+    /* margin-bottom: 40px; */
     position: relative;
+    z-index: 200;
+    background-color: #ffffff;
     .placeBox,
     .dateBox,
     .peopleBox {
@@ -41,7 +44,7 @@ export const NavStyled = styled.div`
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
           padding: 20px;
           width: 300px;
-          z-index: 10;
+          z-index: 300;
           display: flex;
           flex-wrap: wrap;
           gap: 10px;
@@ -89,15 +92,15 @@ export const NavStyled = styled.div`
       }
       .selectPeoplenumBox {
         font-size: medium;
-        position: absolute; /* 절대 위치 설정 */
-        top: 75px; /* 인풋 필드 아래로 이동 (적절히 조정 필요) */
+        position: absolute;
+        top: 75px;
         right: 0%;
-        background-color: #ffffff; /* 흰색 배경 */
-        border-radius: 12px; /* 둥근 모서리 */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
-        width: 300px; /* 너비 설정 */
-        /* z-index: 10; 팝업이 다른 요소들 위에 오도록 설정 */
+        width: 300px;
+        z-index: 300;
         display: flex;
         flex-direction: column;
 
@@ -127,20 +130,20 @@ export const NavStyled = styled.div`
             }
           }
         }
-      }
-      .okBox {
-        margin-top: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid lightgray;
-        color: black;
-        border-radius: 8px;
-        height: 40px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        &:hover {
-          background-color: #f0f0f0;
+        .okBox {
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid lightgray;
+          color: black;
+          border-radius: 8px;
+          height: 40px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          &:hover {
+            background-color: #f0f0f0;
+          }
         }
       }
     }
@@ -169,7 +172,7 @@ export const NavStyled = styled.div`
   }
   @media (max-width: 768px) {
     .navBox {
-      display: none !important;
+      /* display: none !important; */
     }
   }
 `;
