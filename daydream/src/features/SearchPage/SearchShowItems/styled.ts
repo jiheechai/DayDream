@@ -91,5 +91,13 @@ export const SearchPageShowRoomStyled = styled.div`
         height: 250px; /* 모바일에서 이미지 높이 조정 */
       }
     }
+    /* 이전 버튼 (왼쪽 화살표) */
+    .swiper-button-prev {
+      display: none;
+    }
+    /* 다음 버튼 (오른쪽 화살표) */
+    .swiper-button-next {
+      display: none;
+    }
   }
 `;

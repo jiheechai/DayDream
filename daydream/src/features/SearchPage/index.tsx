@@ -1,31 +1,15 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useRouter } from "next/router";
 import { seoul, busan, jeju, jeonju } from "@/utill/data";
-import MarkerComponent from "@/components/MarkerComponent";
+
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+
+import MarkerComponent from "@/components/MarkerComponent";
+
 import { SearchStyled } from "./styled";
 import { SearchPageShowRoomStyled } from "./SearchShowItems/styled";
 import ShowItems from "@/components/ShowItems";
-import { MainPageShowItemsStyled } from "@/features/MainPage/ShowItems/styled";
 const SearchPage = () => {
-  // detail page로 라우팅
-  // const handleSearch = (id: number) => {
-  //   // URL의 쿼리 파라미터로 필요한 데이터 전달
-  //   router.push({
-  //     pathname: "/details",
-  //     query: {
-  //       clickCheckIn: checkInDate || "",
-  //       clickCheckOut: checkOutDate || "",
-  //       clickPeopleNum: peopleNum || "",
-  //       clickAdultCount: adultCount || "",
-  //       clickChildCount: childCount || "",
-  //       clickInfantNum: infantCount || "",
-  //       clickPetCount: petCount || "",
-  //       id: id,
-  //     },
-  //   });
-  // };
-
   const router = useRouter();
   const {
     place,

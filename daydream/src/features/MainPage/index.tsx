@@ -31,8 +31,9 @@ const MainPage = () => {
   const initialFilterData = allData.filter((item) =>
     item.hash.some((hashItem) => hashItem.tag === "최고의 전망")
   );
-  const [newFilterData, setNewFilterData] = useState<any>(initialFilterData);
   const [clickFilter, setClickFilter] = useState("최고의 전망");
+  const [newFilterData, setNewFilterData] = useState<any>(initialFilterData);
+
   const clickFilterItem = (title: string) => {
     setClickFilter(title);
     const newData = allData.filter((item) =>

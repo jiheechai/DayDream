@@ -19,6 +19,7 @@ export const DetailStyledComponent = styled.div`
       margin: 30px 0px;
       display: flex;
       position: relative;
+      justify-content: space-between;
       .rightContainer {
         height: 500px;
         position: sticky;

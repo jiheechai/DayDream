@@ -9,12 +9,14 @@ export const SearchStyled = styled.div`
     flex-direction: row;
     width: 100%;
     .map-box {
+      position: sticky;
+      top: 163px;
+
       box-sizing: border-box;
       height: 83.5vh;
       width: 100%;
-      position: sticky;
+
       z-index: 30;
-      top: 163px;
     }
     .data-box {
       width: 100%;

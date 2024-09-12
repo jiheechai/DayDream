@@ -72,6 +72,13 @@ export const MainPageShowItemsStyled = styled.div`
     font-weight: bold;
   }
 
+  .swiper-pagination-bullet {
+    background-color: blue; /* 기본 색상 */
+  }
+  .swiper-pagination-bullet-active {
+    background-color: red; /* 활성화된 bullet 색상 */
+  }
+
   /* 반응형 미디어 쿼리 */
   //태블릿
   @media (max-width: 1024px) {
@@ -90,12 +97,6 @@ export const MainPageShowItemsStyled = styled.div`
         height: 250px; /* 모바일에서 이미지 높이 조정 */
       }
     }
-  }
-
-  /* 작은 모바일 기기 */
-  @media (max-width: 480px) {
-    /* swiper */
-    /* 이전 버튼 (왼쪽 화살표) */
     .swiper-button-prev {
       display: none;
     }
@@ -103,5 +104,9 @@ export const MainPageShowItemsStyled = styled.div`
     .swiper-button-next {
       display: none;
     }
+  }
+
+  /* 작은 모바일 기기 */
+  @media (max-width: 480px) {
   }
 `;

@@ -61,5 +61,19 @@ export const ShowImagesStyledComponent = styled.div`
       width: 100%;
       height: 400px;
     }
+    /* 이전 버튼 (왼쪽 화살표) */
+    .swiper-button-prev {
+      display: none;
+    }
+    /* 다음 버튼 (오른쪽 화살표) */
+    .swiper-button-next {
+      display: none;
+    }
+    .swiper-pagination-bullet {
+      background-color: blue; /* 기본 색상 */
+    }
+    .swiper-pagination-bullet-active {
+      background-color: red; /* 활성화된 bullet 색상 */
+    }
   }
 `;

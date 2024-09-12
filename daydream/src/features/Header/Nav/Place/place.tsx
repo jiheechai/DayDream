@@ -107,11 +107,11 @@ const Place = ({
       <div ref={inputRef}>
         여행지
         <Input
+          onChange={findPlace}
+          onFocus={handleInputClick}
           placeholder="여행지를 입력하세요."
           className="place"
           value={place}
-          onChange={findPlace}
-          onFocus={handleInputClick}
         />
         {/* 자동 완성 창 */}
         <div className="placeRefBox">
