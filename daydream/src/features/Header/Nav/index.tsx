@@ -1,6 +1,6 @@
-import Place from "../place";
-import Date from "../date";
-import People from "../people";
+import Place from "./Place/place";
+import Date from "./Date/date";
+import People from "./People/people";
 import { Dayjs } from "dayjs";
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

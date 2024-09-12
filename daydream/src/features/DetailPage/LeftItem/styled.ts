@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const LeftItemStyledComponent = styled.div`
   .left-container {
     width: 100%;
-    margin: 0 80px 80px 0;
+    /* margin: 0 80px 80px 0; */
     .region-container {
-      margin: 0 0 3px 0;
+      margin-bottom: 3px;
       font-size: 24px;
       font-weight: bold;
     }
     .peopleLimit-container {
       text-align: left;
-      width: 100%;
+      /* width: 100%; */
       font-size: medium;
     }
 
@@ -20,12 +20,11 @@ export const LeftItemStyledComponent = styled.div`
       .hash-container {
         display: flex;
         gap: 10px;
-
         .hash {
           background-color: #f0f0f0;
           padding: 5px 10px;
           border-radius: 20px;
-          font-size: 14px;
+          font-size: small;
           color: #555;
         }
       }
@@ -40,12 +39,10 @@ export const LeftItemStyledComponent = styled.div`
       white-space: pre-wrap; /* 줄바꿈과 공백을 그대로 유지 */
       word-wrap: break-word; /* 긴 단어도 자동으로 줄바꿈되도록 설정 */
     }
-
     .describe-container.expanded {
       -webkit-line-clamp: unset; /* 확장 시 모든 텍스트 표시 */
       overflow: visible;
     }
-
     .mobileDescibe-container {
       display: none;
     }

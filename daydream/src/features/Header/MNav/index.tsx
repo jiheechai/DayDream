@@ -1,7 +1,7 @@
-import Place from "../place";
+import Place from "../Nav/Place/place";
 
-import Date from "../date";
-import People from "../people";
+import Date from "../Nav/Date/date";
+import People from "../Nav/People/people";
 import { MNavStyled } from "./styled";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Dayjs } from "dayjs";

@@ -87,9 +87,9 @@ const PeopleComponent = ({
               {petCount}
               <Button onClick={() => incrementCount("pet")}>+</Button>
             </div>
-            <div className="okBox" onClick={handleConfirm}>
+            <Button className="okBox" onClick={handleConfirm}>
               확인
-            </div>
+            </Button>
           </div>
         )}
       </PeopleComponentStyled>

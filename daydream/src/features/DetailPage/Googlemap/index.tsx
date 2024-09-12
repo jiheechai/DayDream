@@ -15,6 +15,12 @@ const Googlemap = ({
   onUnmount,
   myStyles,
 }: dataProps) => {
+  const findRoad = (lat: number, lng: number) => {
+    let url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&hl=ko`;
+
+    // 새 창에서 길찾기 열기
+    window.open(url, "_blank");
+  };
   return (
     <div className="map-box">
       {isLoaded ? (
@@ -29,10 +35,9 @@ const Googlemap = ({
           <MarkerF
             onLoad={onLoad}
             position={{ lat: select.latitude, lng: select.longitude }}
-            // icon={{
-            //   url: "icon.svg",
-            //   scaledSize: new window.google.maps.Size(32, 32),
-            // }}
+            onClick={() => {
+              findRoad(select.latitude, select.longitude);
+            }}
           />
         </GoogleMap>
       ) : (

@@ -14,5 +14,10 @@ export const DateComponentStyled = styled.div`
         margin-right: 28%;
       }
     }
+    .selectDate {
+      width: 100%;
+      /* border: none; */
+      height: 34px;
+    }
   }
 `;

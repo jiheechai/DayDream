@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, useEffect, useRef } from "react";
 import { Input } from "antd";
+import { PlaceStyledComponent } from "./styled";
 interface dataProps {
   setPlace: any;
   setAutoComplete: any;
@@ -102,34 +103,36 @@ const Place = ({
   }, []);
 
   return (
-    <div ref={inputRef}>
-      여행지
-      <Input
-        placeholder="여행지를 입력하세요."
-        className="place"
-        value={place}
-        onChange={findPlace}
-        onFocus={handleInputClick}
-      />
-      <div className="placeRefBox">
+    <PlaceStyledComponent>
+      <div ref={inputRef}>
+        여행지
+        <Input
+          placeholder="여행지를 입력하세요."
+          className="place"
+          value={place}
+          onChange={findPlace}
+          onFocus={handleInputClick}
+        />
         {/* 자동 완성 창 */}
-        {isPopupOpen && (
-          <ul>
-            {autoComplete.map((item: any, index: number) => (
-              <li
-                key={index}
-                onClick={() => {
-                  setPlace(item);
-                  setIsPopupOpen(false);
-                }}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        )}
+        <div className="placeRefBox">
+          {isPopupOpen && (
+            <ul>
+              {autoComplete.map((item: any, index: number) => (
+                <li
+                  key={index}
+                  onClick={() => {
+                    setPlace(item);
+                    setIsPopupOpen(false);
+                  }}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-    </div>
+    </PlaceStyledComponent>
   );
 };
 

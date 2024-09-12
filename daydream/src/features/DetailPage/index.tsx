@@ -188,37 +188,40 @@ const DetailPage = () => {
             {/*내용 */}
             <div className="middle-text-container">
               {/* 왼쪽 내용 컴포넌트 */}
-              <LeftItem
-                select={select}
-                describeRef={describeRef}
-                isExpanded={isExpanded}
-                buttonRef={buttonRef}
-                toggleExpand={toggleExpand}
-              />
-
+              <div className="leftContainer">
+                <LeftItem
+                  select={select}
+                  describeRef={describeRef}
+                  isExpanded={isExpanded}
+                  buttonRef={buttonRef}
+                  toggleExpand={toggleExpand}
+                />
+              </div>
               {/* 오른쪽 내용 컴포넌트 */}
-              <RightItem
-                select={select}
-                setDates={setDates}
-                setCheckInDate={setCheckInDate}
-                setCheckOutDate={setCheckOutDate}
-                rangePickerRef={rangePickerRef}
-                dates={dates}
-                setSelectedDays={setSelectedDays}
-                defaultRangeValue={defaultRangeValue}
-                setIsGuestSelectorVisible={setIsGuestSelectorVisible}
-                isGuestSelectorVisible={isGuestSelectorVisible}
-                peopleNum={peopleNum}
-                selectedDays={selectedDays}
-                infantCount={infantCount}
-                petCount={petCount}
-                adultCount={adultCount}
-                decrementCount={decrementCount}
-                incrementCount={incrementCount}
-                childCount={childCount}
-                calculateOnedayPrice={calculateOnedayPrice}
-                calculateTotalPrice={calculateTotalPrice}
-              />
+              <div className="rightContainer">
+                <RightItem
+                  select={select}
+                  setDates={setDates}
+                  setCheckInDate={setCheckInDate}
+                  setCheckOutDate={setCheckOutDate}
+                  rangePickerRef={rangePickerRef}
+                  dates={dates}
+                  setSelectedDays={setSelectedDays}
+                  defaultRangeValue={defaultRangeValue}
+                  setIsGuestSelectorVisible={setIsGuestSelectorVisible}
+                  isGuestSelectorVisible={isGuestSelectorVisible}
+                  peopleNum={peopleNum}
+                  selectedDays={selectedDays}
+                  infantCount={infantCount}
+                  petCount={petCount}
+                  adultCount={adultCount}
+                  decrementCount={decrementCount}
+                  incrementCount={incrementCount}
+                  childCount={childCount}
+                  calculateOnedayPrice={calculateOnedayPrice}
+                  calculateTotalPrice={calculateTotalPrice}
+                />
+              </div>
             </div>
 
             {/* 구글맵 컴포넌트 */}

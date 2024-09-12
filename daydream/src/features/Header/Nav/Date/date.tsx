@@ -1,6 +1,7 @@
 import { DatePicker } from "antd";
 import { Dayjs } from "dayjs";
 import { useEffect } from "react";
+import { DateStyledComponent } from "./styled";
 const { RangePicker } = DatePicker;
 
 interface dataProps {
@@ -23,7 +24,6 @@ const Date = ({
   defaultRangeValue,
 }: dataProps) => {
   const moment = require("moment");
-
   // 날짜 변경 시 호출되는 함수
   const onRangeChange = (dates: [Dayjs | null, Dayjs | null] | null) => {
     setDates(dates);
@@ -47,7 +47,6 @@ const Date = ({
       setSelectedDays(0); // 선택된 일 수 초기화
     }
   };
-
   //detailpage 위한것.
   useEffect(() => {
     if (defaultRangeValue[0] != null && defaultRangeValue[1] != null) {
@@ -66,13 +65,12 @@ const Date = ({
   ]);
 
   return (
-    <div>
+    <DateStyledComponent>
       <div className="wrapBox">
         <div className="checkInOutBox">
           <div className="checkIn">체크인</div>
           <div className="checkOut">체크아웃</div>
         </div>
-
         <div>
           <RangePicker
             className="selectDate"
@@ -85,7 +83,7 @@ const Date = ({
           />
         </div>
       </div>
-    </div>
+    </DateStyledComponent>
   );
 };
 

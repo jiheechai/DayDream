@@ -1,5 +1,6 @@
 import { Button, Input } from "antd";
 import React, { useState } from "react";
+import { PeopleStyledComponent } from "./styled";
 interface dataProps {
   setIsGuestSelectorVisible: any;
   isGuestSelectorVisible: any;
@@ -49,7 +50,7 @@ const People = ({
   };
 
   return (
-    <>
+    <PeopleStyledComponent>
       <div className="people">여행자</div>
       <Input
         defaultValue="게스트 추가"
@@ -90,7 +91,7 @@ const People = ({
           </div>
         </div>
       )}
-    </>
+    </PeopleStyledComponent>
   );
 };
 export default People;

@@ -5,26 +5,25 @@ export const DetailStyledComponent = styled.div`
   padding-bottom: 100px;
   width: 100%;
   .wrap-container {
-    /* width: 100%; */
     height: 100%;
     max-width: 1200px;
-    display: flex;
-    flex-direction: column;
     margin: 0 auto;
     /* 타이틀 */
     .name-container {
-      /* width: 100%; */
       font-size: 2em;
       font-weight: bold;
-      /* margin: 15px 0; */
     }
 
     /* 내용 */
     .middle-text-container {
       margin: 30px 0px;
-      max-width: 1200px;
       display: flex;
-      /* width: 100%; */
+      position: relative;
+      .rightContainer {
+        height: 500px;
+        position: sticky;
+        top: 180px;
+      }
     }
 
     /* 구글맵 */
@@ -57,6 +56,6 @@ export const DetailStyledComponent = styled.div`
 
   /* 작은 모바일 기기 */
   @media (max-width: 480px) {
-    width: 100%;
+    /* width: 100%; */
   }
 `;

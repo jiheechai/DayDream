@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const RightItemStyledComponent = styled.div`
-  width: 50%;
+  /* width: 100%; */
   .right-container {
     display: flex;
     flex-direction: column;
@@ -33,11 +33,11 @@ export const RightItemStyledComponent = styled.div`
       color: white;
       padding: 10px 20px;
       font-size: 16px;
-      border-radius: 10px;
-      cursor: pointer;
       width: 100%;
+      border-radius: 0px;
+      cursor: pointer;
       height: 12%;
-      margin: 10px 0;
+      /* margin: 20px 0; */
       &:hover {
         background-color: #e04e53;
       }

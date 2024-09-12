@@ -75,17 +75,15 @@ const DateComponent = ({
             <div className="checkOut">체크아웃</div>
           </div>
 
-          <div>
-            <RangePicker
-              className="selectDate"
-              ref={rangePickerRef} // RangePicker의 ref 추가
-              onChange={onRangeChange} // 날짜 변경 시 호출
-              value={dates}
-              disabledDate={(current) =>
-                current.isBefore(moment().subtract(1, "day"))
-              }
-            />
-          </div>
+          <RangePicker
+            className="selectDate"
+            ref={rangePickerRef} // RangePicker의 ref 추가
+            onChange={onRangeChange} // 날짜 변경 시 호출
+            value={dates}
+            disabledDate={(current) =>
+              current.isBefore(moment().subtract(1, "day"))
+            }
+          />
         </div>
       </div>
     </DateComponentStyled>
