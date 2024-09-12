@@ -1,5 +1,4 @@
 import Place from "../Nav/Place/place";
-
 import Date from "../Nav/Date/date";
 import People from "../Nav/People/people";
 import { MNavStyled } from "./styled";
@@ -8,6 +7,7 @@ import { Dayjs } from "dayjs";
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import close from "@/assets/image/close.png";
+import { useState } from "react";
 interface dataProps {
   place: any;
   setPlace: any;
@@ -20,8 +20,6 @@ interface dataProps {
   setSelectedDays: any;
   rangePickerRef: any;
   defaultRangeValue: any;
-  isGuestSelectorVisible: boolean;
-  setIsGuestSelectorVisible: any;
   peopleNum: number;
   adultCount: number;
   childCount: number;
@@ -46,8 +44,6 @@ const MNav = ({
   setSelectedDays,
   rangePickerRef,
   defaultRangeValue,
-  isGuestSelectorVisible,
-  setIsGuestSelectorVisible,
   peopleNum,
   adultCount,
   childCount,
@@ -59,6 +55,7 @@ const MNav = ({
   isOpen,
   MhandleSearch,
 }: dataProps) => {
+  const [isGuestSelectorVisible, setIsGuestSelectorVisible] = useState(false);
   return (
     <MNavStyled>
       <div className={`MnavBox ${open ? "open" : ""}`}>

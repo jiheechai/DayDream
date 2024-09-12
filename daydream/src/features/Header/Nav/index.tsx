@@ -6,6 +6,7 @@ import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { NavStyled } from "./styled";
+import { useState } from "react";
 interface dataProps {
   place: any;
   setPlace: any;
@@ -18,8 +19,6 @@ interface dataProps {
   setSelectedDays: any;
   rangePickerRef: any;
   defaultRangeValue: any;
-  isGuestSelectorVisible: boolean;
-  setIsGuestSelectorVisible: any;
   peopleNum: number;
   adultCount: number;
   childCount: number;
@@ -41,8 +40,6 @@ const Nav = ({
   setSelectedDays,
   rangePickerRef,
   defaultRangeValue,
-  isGuestSelectorVisible,
-  setIsGuestSelectorVisible,
   peopleNum,
   adultCount,
   childCount,
@@ -52,6 +49,7 @@ const Nav = ({
   incrementCount,
   handleSearch,
 }: dataProps) => {
+  const [isGuestSelectorVisible, setIsGuestSelectorVisible] = useState(false);
   return (
     <NavStyled>
       <div className="navBox">

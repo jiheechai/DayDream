@@ -51,7 +51,7 @@ const People = ({
 
   return (
     <PeopleStyledComponent>
-      <div className="people">여행자</div>
+      여행자
       <Input
         defaultValue="게스트 추가"
         className="peoplenum"
@@ -60,37 +60,39 @@ const People = ({
         readOnly
       />
       {/* 인원 조절 팝업  */}
-      {isGuestSelectorVisible && (
-        <div className="selectPeoplenumBox">
-          <div className="guestRow">
-            성인 (13세 이상)
-            <Button onClick={() => decrementCount("adult")}>-</Button>
-            {adultCount}
-            <Button onClick={() => incrementCount("adult")}>+</Button>
+      <div className="pickPopup">
+        {isGuestSelectorVisible && (
+          <div className="selectPeoplenumBox">
+            <div className="guestRow">
+              성인 (13세 이상)
+              <Button onClick={() => decrementCount("adult")}>-</Button>
+              {adultCount}
+              <Button onClick={() => incrementCount("adult")}>+</Button>
+            </div>
+            <div className="guestRow">
+              어린이 (2~12세)
+              <Button onClick={() => decrementCount("child")}>-</Button>
+              {childCount}
+              <Button onClick={() => incrementCount("child")}>+</Button>
+            </div>
+            <div className="guestRow">
+              유아 (2세 미만)
+              <Button onClick={() => decrementCount("infant")}>-</Button>
+              {infantCount}
+              <Button onClick={() => incrementCount("infant")}>+</Button>
+            </div>
+            <div className="guestRow">
+              반려동물
+              <Button onClick={() => decrementCount("pet")}>-</Button>
+              {petCount}
+              <Button onClick={() => incrementCount("pet")}>+</Button>
+            </div>
+            <div className="okBox" onClick={handleConfirm}>
+              확인
+            </div>
           </div>
-          <div className="guestRow">
-            어린이 (2~12세)
-            <Button onClick={() => decrementCount("child")}>-</Button>
-            {childCount}
-            <Button onClick={() => incrementCount("child")}>+</Button>
-          </div>
-          <div className="guestRow">
-            유아 (2세 미만)
-            <Button onClick={() => decrementCount("infant")}>-</Button>
-            {infantCount}
-            <Button onClick={() => incrementCount("infant")}>+</Button>
-          </div>
-          <div className="guestRow">
-            반려동물
-            <Button onClick={() => decrementCount("pet")}>-</Button>
-            {petCount}
-            <Button onClick={() => incrementCount("pet")}>+</Button>
-          </div>
-          <div className="okBox" onClick={handleConfirm}>
-            확인
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </PeopleStyledComponent>
   );
 };

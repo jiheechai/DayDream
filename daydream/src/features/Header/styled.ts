@@ -45,7 +45,7 @@ export const HeaderStyled = styled.div`
       }
     }
     .desktopNavBox {
-      padding: 10px;
+      /* padding: 10px; */
     }
   }
 
@@ -76,9 +76,6 @@ export const HeaderStyled = styled.div`
             }
           }
         }
-      }
-      .desktopNavBox {
-        display: none;
       }
     }
   }

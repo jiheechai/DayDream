@@ -36,7 +36,7 @@ const Header = () => {
   const [selectedDays, setSelectedDays] = useState<number>(0);
 
   //people 컴포넌트.
-  const [isGuestSelectorVisible, setIsGuestSelectorVisible] = useState(false);
+
   const [peopleNum, setPeopleNum] = useState(1);
   const [adultCount, setAdultCount] = useState(1);
   const [childCount, setChildCount] = useState(0);
@@ -169,32 +169,30 @@ const Header = () => {
           </div>
 
           {/* pc navbar 컴포넌트 */}
-          <div className="desktopNavBox">
-            <Nav
-              place={place}
-              setPlace={setPlace}
-              autoComplete={autoComplete}
-              setAutoComplete={setAutoComplete}
-              dates={dates}
-              setDates={setDates}
-              setCheckInDate={setCheckInDate}
-              setCheckOutDate={setCheckOutDate}
-              setSelectedDays={setSelectedDays}
-              rangePickerRef={rangePickerRef}
-              defaultRangeValue={defaultRangeValue}
-              isGuestSelectorVisible={isGuestSelectorVisible}
-              setIsGuestSelectorVisible={setIsGuestSelectorVisible}
-              peopleNum={peopleNum}
-              adultCount={adultCount}
-              childCount={childCount}
-              infantCount={infantCount}
-              petCount={petCount}
-              decrementCount={decrementCount}
-              incrementCount={incrementCount}
-              handleSearch={handleSearch}
-            />
-          </div>
+          {/* <div className="desktopNavBox"> */}
+          <Nav
+            place={place}
+            setPlace={setPlace}
+            autoComplete={autoComplete}
+            setAutoComplete={setAutoComplete}
+            dates={dates}
+            setDates={setDates}
+            setCheckInDate={setCheckInDate}
+            setCheckOutDate={setCheckOutDate}
+            setSelectedDays={setSelectedDays}
+            rangePickerRef={rangePickerRef}
+            defaultRangeValue={defaultRangeValue}
+            peopleNum={peopleNum}
+            adultCount={adultCount}
+            childCount={childCount}
+            infantCount={infantCount}
+            petCount={petCount}
+            decrementCount={decrementCount}
+            incrementCount={incrementCount}
+            handleSearch={handleSearch}
+          />
         </div>
+        {/* </div> */}
       </HeaderStyled>
 
       {/* filter */}
@@ -212,8 +210,6 @@ const Header = () => {
         setSelectedDays={setSelectedDays}
         rangePickerRef={rangePickerRef}
         defaultRangeValue={defaultRangeValue}
-        isGuestSelectorVisible={isGuestSelectorVisible}
-        setIsGuestSelectorVisible={setIsGuestSelectorVisible}
         peopleNum={peopleNum}
         adultCount={adultCount}
         childCount={childCount}

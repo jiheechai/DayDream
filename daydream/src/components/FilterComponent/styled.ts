@@ -21,7 +21,7 @@ export const FilterComponentStyled = styled.div`
       margin: 1%;
       text-align: center;
       width: 120px;
-      height: 80px;
+      height: 70px;
       /* width: 9%;
       height: 60px; */
       transition: all 0.2s ease;
