@@ -72,6 +72,12 @@ export const SearchPageShowRoomStyled = styled.div`
     font-size: 24px; /* 화살표 크기 */
     font-weight: bold; /* 굵은 화살표 */
   }
+  .swiper-pagination-bullet {
+    background-color: blue; /* 기본 색상 */
+  }
+  .swiper-pagination-bullet-active {
+    background-color: red; /* 활성화된 bullet 색상 */
+  }
 
   /* 반응형 미디어 쿼리 */
   //태블릿
