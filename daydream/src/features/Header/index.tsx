@@ -131,8 +131,10 @@ const Header = () => {
             <div
               className="logoBox"
               onClick={() => {
-                resetStates(); // 상태 초기화
-                router.push("/"); // 메인 페이지로 이동
+                // resetStates(); // 상태 초기화
+                // router.push("/");
+                // 메인 페이지로 리디렉션하면서 페이지 새로고침
+                window.location.href = "/";
               }}
             >
               <img src={imageLogo.src} alt="로고" />
