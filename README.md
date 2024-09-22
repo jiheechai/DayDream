@@ -1,10 +1,16 @@
 # 백일몽
 React project
 ![main](https://github.com/user-attachments/assets/c089f83c-60c9-4a72-bd15-58bad7e29dd5)
+
+
 온라인 숙박 공유 플랫폼
+
 서버 주소 : http://43.203.247.141:3000/
+
 사용 기술 : React, Next.js, Typescript
+
 개발 기간 : 2024.09.02.월 ~ 2024.09.12.목
+
 참여 인원 : 1인. 개인 프로젝트
 
 주요 기능 :
