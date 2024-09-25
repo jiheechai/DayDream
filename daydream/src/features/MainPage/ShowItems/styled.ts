@@ -100,7 +100,6 @@ export const MainPageShowItemsStyled = styled.div`
     .swiper-button-prev {
       display: none;
     }
-    /* 다음 버튼 (오른쪽 화살표) */
     .swiper-button-next {
       display: none;
     }
