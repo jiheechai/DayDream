@@ -22,7 +22,7 @@
 
 
 2. 검색페이지 : 
-- 헤더 검색창 : “여행지, 날짜, 인원” 검색한 결과가 보여짐.
+- 헤더 검색창을 통해 “여행지, 날짜, 인원” 검색한 결과가 보여짐. 
 - googlemap api 지도 : 우측 데이터에 hover하면 지도에 검정 마커 표시 / 마커 클릭시 데이터 보여줌 / position:sticky 지도 고정
 ![search](https://github.com/user-attachments/assets/6360bcf1-0484-4357-ba98-a54da2ec420b)
 
