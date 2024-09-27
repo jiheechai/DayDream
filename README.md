@@ -1,5 +1,4 @@
-# 온라인 숙박 공유 플랫폼. 백일몽
-React project
+# React project. 온라인 숙박 공유 플랫폼. 백일몽
 ![main](https://github.com/user-attachments/assets/c089f83c-60c9-4a72-bd15-58bad7e29dd5)
 
 
@@ -30,14 +29,14 @@ React project
 - antd Image사용. 이미지 클릭시 크게 보여줌.
 - 좌측 내용 : 팝업으로 열어서 자세히 보기. 스크롤 이벤트로 자연스럽게 열리는듯한 효과.
 - 우측 가격표 : 선택한 박수에 따른 가격을 보여줌 / 인원수 선택은 숙소별 최대인원까지만 선택가능. / position:sticky로 내용을 읽으며 스크롤할때 가격표가 따라옴
+
 ![detail1](https://github.com/user-attachments/assets/41142179-5a39-4c37-9c2d-4d1837e1131e)
 
-지도 마커 : 클릭시 구글맵 길찾기 연동
+- 지도 마커 : 클릭시 구글맵 길찾기 연동
 ![detailmap](https://github.com/user-attachments/assets/3c35c33e-cd34-434b-919a-2cde89171ad3)
 
 
 [반응형] 
 - 반응형 헤더: 검색창 터치하면 위에서 아래로 내려오게 변경.
 - 반응형 상세페이지 : 사진을 swiper로 변경. 더보기는 팝업 대신 모달로 변경
-  
 ![반응형](https://github.com/user-attachments/assets/7ff1242a-3f2c-4864-9875-1366f675cece)
