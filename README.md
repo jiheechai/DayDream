@@ -20,15 +20,17 @@
 1. 메인페이지 : 카테고리별로 필터링. /swiper로 사진 여러장 볼 수 있음.
 ![main](https://github.com/user-attachments/assets/4e11c63f-c506-4607-b1d4-472e00cd1b7e)
 
+
 2. 검색페이지 : 
 - 헤더 검색창 : “여행지, 날짜, 인원” 검색한 결과가 보여짐.
 - googlemap api 지도 : 우측 데이터에 hover하면 지도에 검정 마커 표시 / 마커 클릭시 데이터 보여줌 / position:sticky 지도 고정
 ![search](https://github.com/user-attachments/assets/6360bcf1-0484-4357-ba98-a54da2ec420b)
 
+
 3. 상세페이지 :
 - antd Image사용. 이미지 클릭시 크게 보여줌.
 - 좌측 내용 : 팝업으로 열어서 자세히 보기. 스크롤 이벤트로 자연스럽게 열리는듯한 효과.
-- 우측 가격표 : 선택한 박수에 따른 가격을 보여줌 / 인원수 선택은 숙소별 최대인원까지만 선택가능. / position:sticky로 내용을 읽으며 스크롤할때 가격표가 따라옴
+- 우측 가격표 : 선택한 박수에 따른 가격을 보여줌 / 인원수 선택은 숙소별 최대인원까지만 선택가능. / position:sticky로 내용을 읽으며 스크롤할때 가격표가 따라옴 / 결제페이지는 현재 구현중. 사용자들이 준비중인 기능임을 명시적으로 알 수 있도록 antd Modal로 띄워주고 있음.
 
 ![detail1](https://github.com/user-attachments/assets/41142179-5a39-4c37-9c2d-4d1837e1131e)
 
